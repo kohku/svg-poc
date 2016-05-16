@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 config = {
   context: path.join(__dirname, 'public/js'),
-  entry: '.public/index.js',
+  entry: './index.js',
   output: {
     path: path.join(__dirname, 'public/js'),
     filename: 'bundle.js'
