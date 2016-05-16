@@ -1,0 +1,9 @@
+<h1>Commands</h1>
+<ul>
+  <li ng-repeat="cmd in $ctrl.commands" ng-click="$ctrl.apply(cmd.name)">{{cmd.name}}</li>
+  <li ng-click="$ctrl.undo()">Undo</li>
+</ul>
+<button ng-click="$ctrl.save()">Save</button>
+<button ng-click="$ctrl.reset()">Reset</button>
+<button ng-click="$ctrl.load()">Load</button><br/>
+<img ng-style="$ctrl.outputStyle" src="img/redwood-ukulele-top.jpg" alt="ukulele">
