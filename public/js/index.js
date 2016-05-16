@@ -1,4 +1,21 @@
-export function run(){
+import { Slot, Shelf, Card, CardSlotContainer } from './lib/shelf'
+
+export function main(){
+  
+  let card = new Card();
+  let cardSlotContainer = new CardSlotContainer()
+  let shelf = new Shelf();
+  let slot = new Slot();
+  
+  try{  
+    shelf.slots.addCard(card);
+    shelf.slots.addCard(cardSlotContainer);
+    cardSlotContainer.slots.addCard(card);
+  }
+  catch(e){
+    console.log(e.message)
+  }
+  
   var s = Snap("svg");
 
   s.node.onmousedown = function(event){
@@ -66,20 +83,20 @@ export function run(){
       stroke: "#000",
       strokeWidth: 3
   });
-  var slot = s.rect(50, 100, 25, 200, 3, 3);
-  slot.attr({
+  var mySlot = s.rect(50, 100, 25, 200, 3, 3);
+  mySlot.attr({
     fill: "red",
     stroke: "#000",
     strokeWidth: 3
   })
-  slot.node.onclick = function(){
-    var clone = slot.clone();
+  mySlot.node.onclick = function(){
+    var clone = mySlot.clone();
     clone.attr({
-      x: parseInt(slot.node.attributes.x.value) + parseInt(slot.node.attributes.width.value) + 20
+      x: parseInt(mySlot.node.attributes.x.value) + parseInt(mySlot.node.attributes.width.value) + 20
     })
     clone.drag();
   };
   console.log("end");
 }
 
-run();
+main();
