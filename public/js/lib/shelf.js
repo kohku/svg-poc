@@ -19,7 +19,8 @@ export class Slot extends Component {
     super(renderEngine, options)
   }
   render(){
-    this.view = this.renderEngine.buildSlot(this.options)
+    this.renderEngine.appendSlot(this)
+    return this.view;
   }
 }
 
@@ -39,11 +40,6 @@ export class SlotContainer extends Component {
     
     this.elements.push(slot);
   }
-  render(){
-    this.elements.forEach(s => {
-      s.render()
-    })
-  }
 }
 
 export class Shelf extends Component {
@@ -52,8 +48,9 @@ export class Shelf extends Component {
     this.slots = new SlotContainer()
   }
   render(){
-    this.renderEngine.buildShelf()
-    this.slots.render()
+    this.renderEngine.appendShelf(this)
+    this.renderEngine.appendComponent(this, this.slots.elements)
+    return this.view;
   }
 }
 

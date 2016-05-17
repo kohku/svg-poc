@@ -3,14 +3,14 @@ import { Slot, Shelf, Card, CardSlotContainer } from './shelf'
 
 export class RenderEngine {
   constructor(selector){
-    this.snap = Snap(selector)
+    this.paper = Snap(selector)
     this.observable = new Observable()
     this.buildControls()
     this.handleSelection()
   }
   
   buildControls(){
-    this.slotBuilder = this.snap.rect(50, 100, 25, 200, 3, 3)
+    this.slotBuilder = this.paper.rect(50, 100, 25, 200, 3, 3)
     this.slotBuilder.attr({
       fill: "red",
       stroke: "#000",
@@ -22,8 +22,17 @@ export class RenderEngine {
     }
   }
   
-  buildShelf(){
-    let shelf = this.snap.rect(300, 100, 500, 250, 3, 3)
+  _setView(component, view){
+    component.view = view
+    return view;
+  }
+  
+  appendShelf(shelf){
+    return this._setView(shelf, this._buildShelf(shelf.options))
+  }
+  
+  _buildShelf(options){
+    let shelf = this.paper.rect(300, 100, 500, 250, 3, 3)
     shelf.attr({
         fill: "#c0c0c0",
         stroke: "#000",
@@ -32,8 +41,26 @@ export class RenderEngine {
     return shelf
   }
   
-  buildSlot(options){
-    let slot = this.snap.rect(options.x, options.y, 25, 200, 3, 3)
+  appendComponent(parent, component){
+    if (Array.isArray(component)){
+      this.appendComponents(parent, component);
+    }
+    else {
+      let group = this.paper.group()
+      group.add(parent.view, component.render())
+    }
+  }
+
+  appendComponents(parent, components){
+    components.forEach(item => this.appendComponent(parent, item))
+  }
+  
+  appendSlot(slot){
+    return this._setView(slot, this._buildSlot(slot.options))
+  }
+  
+  _buildSlot(options){
+    let slot = this.paper.rect(options.x, options.y, 25, 200, 3, 3)
     slot.attr({
         fill: "#000",
         stroke: "#000",
@@ -52,7 +79,7 @@ export class RenderEngine {
   }
   
   buildCard(){
-    let card = this.snap.rect(300, 100, 500, 250, 3, 3)
+    let card = this.paper.rect(300, 100, 500, 250, 3, 3)
     card.attr({
         fill: "#c0c0c0",
         stroke: "#000",
@@ -76,11 +103,11 @@ export class RenderEngine {
   handleSelection(){
     // selection starts
     let self = this
-    this.snap.node.onmousedown = function(event){
-      if (self.snap.node !== event.target)
+    this.paper.node.onmousedown = function(event){
+      if (self.paper.node !== event.target)
         return
 
-      let selection = self.snap.rect(event.clientX, event.clientY, 0, 0)
+      let selection = self.paper.rect(event.clientX, event.clientY, 0, 0)
       selection.attr({
         fill: "transparent",
         stroke: "#303030",
@@ -89,25 +116,24 @@ export class RenderEngine {
       });
       
       // selection is in process
-      self.snap.node.onmousemove = function(event){
+      self.paper.node.onmousemove = function(event){
         selection.attr({
           width: event.clientX - selection.node.attributes.x.value,
           height: event.clientY - selection.node.attributes.y.value
         })
       }
       
-      self.snap.node.mouseleave = self.snap.node.mouselout = function(){
-        self.snap.node.onmousemove = null
-        self.snap.node.onmouseup = null
+      self.paper.node.mouseleave = self.paper.node.mouselout = function(){
+        self.paper.node.onmousemove = null
+        self.paper.node.onmouseup = null
         selection.remove()
         selection = null
       }
       
       // selection has been made
-      self.snap.node.onmouseup = function(event){
+      self.paper.node.onmouseup = function(event){
         var candidates = []
-        var all = self.snap.selectAll("svg > *").items
-        
+        var all = self.paper.selectAll("svg *").items
         var filtered = all.filter(function(item){
           return item !== selection &&
             typeof item.node.attributes.x !== 'undefined' &&
@@ -129,8 +155,8 @@ export class RenderEngine {
           self.observable.trigger('onComponentsSelected', candidates)
         }
         finally {
-          self.snap.node.onmousemove = null
-          self.snap.node.onmouseup = null
+          self.paper.node.onmousemove = null
+          self.paper.node.onmouseup = null
           selection.remove()
           selection = null
         }
