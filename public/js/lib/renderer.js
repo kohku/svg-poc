@@ -43,18 +43,13 @@ export class RenderEngine extends Observable {
   
   appendComponent(parent, component){
     if (Array.isArray(component)){
-      this.appendComponents(parent, component);
+      component.forEach(item => item.render())
     }
     else {
-      let group = this.paper.group()
-      group.add(parent.view, component.render())
+      component.render()
     }
   }
 
-  appendComponents(parent, components){
-    components.forEach(item => this.appendComponent(parent, item))
-  }
-  
   appendSlot(slot){
     return this._setView(slot, this._buildSlot(slot.options))
   }
