@@ -38,11 +38,14 @@ export function main(){
     selection = shelf
   });
   
-  slot1.on('click', function(){
-    width.val(slot1.options.width)
-    height.val(slot1.options.height)
-    selection = slot1
-  })
+  function resize(){
+    width.val(this.options.width)
+    height.val(this.options.height)
+    selection = this
+  }
+  
+  slot1.on('click', resize)
+  slot2.on('click', resize)
   
   renderEngine.on('onComponentsSelected', function(selection){
     console.log(`You selected ${selection.length} items`)
