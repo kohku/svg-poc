@@ -18,7 +18,6 @@ export function main(){
   renderEngine.on('onComponentsSelected', function(selection){
     console.log(`You selected ${selection.length} items`)
     
-    
   })
   
   renderEngine.on('buildSlot', function(builder){

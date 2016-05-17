@@ -1,10 +1,10 @@
 import { Observable } from './observable'
 import { Slot, Shelf, Card, CardSlotContainer } from './shelf'
 
-export class RenderEngine {
+export class RenderEngine extends Observable {
   constructor(selector){
+    super()
     this.paper = Snap(selector)
-    this.observable = new Observable()
     this.buildControls()
     this.handleSelection()
   }
@@ -18,7 +18,7 @@ export class RenderEngine {
     })
     let self = this;
     this.slotBuilder.node.onclick = function(){
-      self.observable.trigger('buildSlot', self.slotBuilder)
+      self.trigger('buildSlot', self.slotBuilder)
     }
   }
   
@@ -88,18 +88,6 @@ export class RenderEngine {
     return card;
   }
   
-  on(event, fn){
-    this.observable.on(event, fn)
-  }
-  
-  off(event, fn){
-    this.observable.off(event, fn)
-  }
-  
-  trigger(event, fn){
-    this.observable.trigger(evetn, fn)
-  }
-  
   handleSelection(){
     // selection starts
     let self = this
@@ -152,7 +140,7 @@ export class RenderEngine {
         })
         
         try {
-          self.observable.trigger('onComponentsSelected', candidates)
+          self.trigger('onComponentsSelected', candidates)
         }
         finally {
           self.paper.node.onmousemove = null
