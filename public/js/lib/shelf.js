@@ -1,10 +1,20 @@
-export class Component {
+import { Observable } from './observable'
+
+export class Component extends Observable {
   constructor(renderEngine, options){
+    super()
     this.renderEngine = renderEngine
     this.options = options
     this.view = undefined
   }
-  render(){}
+  render(){
+    if (typeof this.view !== 'undefined' && this.view !== null){
+      this.view.attr({width: this.options.width, height: this.options.height})
+      return
+    }
+    this._render()
+  }
+  
   drag(){
     if (this.view === 'undefined'){
       throw Error(`Component has not been rendered`)
@@ -18,7 +28,7 @@ export class Slot extends Component {
   constructor(renderEngine, options){
     super(renderEngine, options)
   }
-  render(){
+  _render(){
     this.renderEngine.appendSlot(this)
     return this.view;
   }
@@ -47,7 +57,7 @@ export class Shelf extends Component {
     super(renderEngine, options)
     this.slots = new SlotContainer()
   }
-  render(){
+  _render(){
     this.renderEngine.appendShelf(this)
     this.renderEngine.appendComponent(this, this.slots.elements)
     return this.view;

@@ -24,6 +24,9 @@ export class RenderEngine extends Observable {
   
   _setView(component, view){
     component.view = view
+    component.view.node.onclick = function(){
+      component.trigger('click', component)
+    }
     return view;
   }
   
@@ -32,7 +35,7 @@ export class RenderEngine extends Observable {
   }
   
   _buildShelf(options){
-    let shelf = this.paper.rect(300, 100, 500, 250, 3, 3)
+    let shelf = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     shelf.attr({
         fill: "#c0c0c0",
         stroke: "#000",
@@ -55,7 +58,7 @@ export class RenderEngine extends Observable {
   }
   
   _buildSlot(options){
-    let slot = this.paper.rect(options.x, options.y, 25, 200, 3, 3)
+    let slot = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     slot.attr({
         fill: "#000",
         stroke: "#000",

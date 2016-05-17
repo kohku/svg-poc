@@ -3,46 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>SVG Proof of Concept</title>
-  <style media="screen">
-    html, body {
-        background: #fff;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
-    svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+  
+  <link rel="stylesheet" type="text/css" href="css/poc.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
   <script src="../bower_components/Snap.svg/dist/snap.svg.js"></script>
-  <script src="./js/script.js"></script>
 </head>
 <body>
   <form id="myForm_Rackcreate">
-    <h4 style="color: #0000ff; font-weight: bold;">Rack
-					Information:</h4>
-          	<div>
-						<label class="labelclass">Height:</label>
-					</div>
-          
-					<div>
-						<input  id="hght_create"
-							style="height: 15px !important;" />
-						       	</div>
-                    <br>
-                     <div><label>Width:</label>
-					</div>
-					<div><input id="wdth_create"
-							style="height: 15px !important;" />
-						</div>
-
+    <h4>Rack Information:</h4>
+    <label>Height:</label>
+    <input id="width"  autocomplete="off" />
+    <label>Width:</label>
+    <input id="height" autocomplete="off" />
+  	<button type="submit">Submit</button>
   </form>
-  <br>
   <div class="wrapper">
-	<button  type="submit" id="create" onclick="submit()"
-		style="height: 24px !important; width: auto !important;">Submit</button>
   <svg></svg>
   
   
