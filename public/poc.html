@@ -19,7 +19,32 @@
   <script src="../bower_components/Snap.svg/dist/snap.svg.js"></script>
 </head>
 <body>
+  <form id="myForm_Rackcreate">
+    <h4 style="color: #0000ff; font-weight: bold;">Rack
+					Information:</h4>
+          	<div>
+						<label class="labelclass">Height:</label>
+					</div>
+          
+					<div>
+						<input  id="hght_create"
+							style="height: 15px !important;" />
+						       	</div>
+                    <br>
+                     <div><label>Width:</label>
+					</div>
+					<div><input id="wdth_create"
+							style="height: 15px !important;" />
+						</div>
+
+  </form>
+  <br>
+  <div class="wrapper">
+	<button  type="submit" id="create" onclick="createRackCatalog()"
+		style="height: 24px !important; width: auto !important;">Submit</button>
   <svg></svg>
+  
+  
   <!--<script type="text/javascript" src="js/poc.js" charset="utf-8"></script>-->
   <script type="text/javascript" src="js/bundle.js" charset="utf-8"></script>
 </body>
