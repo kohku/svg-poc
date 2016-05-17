@@ -1,41 +1,71 @@
-export class Slot{
-  constructor(){
+export class Component {
+  constructor(renderEngine, options){
+    this.renderEngine = renderEngine
+    this.options = options
+    this.view = undefined
+  }
+  render(){}
+  drag(){
+    if (this.view === 'undefined'){
+      throw Error(`Component has not been rendered`)
+    }
     
+    this.view.drag()
   }
 }
 
-export class SlotContainer{
-  constructor(){
-    this.__slots = []
+export class Slot extends Component {
+  constructor(renderEngine, options){
+    super(renderEngine, options)
   }
-  addCard(card){
-    if (card === null || typeof card === 'undefined'){
+  render(){
+    this.view = this.renderEngine.buildSlot(this.options)
+  }
+}
+
+export class SlotContainer extends Component {
+  constructor(renderEngine, options){
+    super(renderEngine, options)
+    this.elements = []
+  }
+  addSlot(slot){
+    if (slot === null || typeof slot === 'undefined'){
       throw Error('Invald operation')
     }
     
-    if (!(card instanceof Card)){
-      throw Error('Cannot add a object that is not a card')
+    if (!(slot instanceof Slot)){
+      throw Error('Cannot add a object that is not a slot')
     }
     
-    this.__slots.push(card);
+    this.elements.push(slot);
+  }
+  render(){
+    this.elements.forEach(s => {
+      s.render()
+    })
   }
 }
 
-export class Shelf{
-  constructor(){
+export class Shelf extends Component {
+  constructor(renderEngine, options){
+    super(renderEngine, options)
     this.slots = new SlotContainer()
   }
-}
-
-export class Card {
-  constructor(){
-    
+  render(){
+    this.renderEngine.buildShelf()
+    this.slots.render()
   }
 }
 
-export class CardSlotContainer extends Card{
-  constructor(){
-    super()
+export class Card extends Component {
+  constructor(renderEngine, options){
+    super(renderEngine, options)
+  }
+}
+
+export class CardSlotContainer extends Card {
+  constructor(renderEngine, options){
+    super(renderEngine, options)
     this.slots = new SlotContainer()
   }
-}
+} 
