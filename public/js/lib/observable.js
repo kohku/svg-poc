@@ -1,16 +1,16 @@
-export class Observable{
-  constructor(){
-   
+export class Observable {
+  constructor() {
+
   }
-  
-  on(event, fn){
+
+  on(event, fn) {
     this._callbacks = this._callbacks || {};
     (this._callbacks[event] = this._callbacks[event] || [])
       .push(fn);
     return this;
   }
-  
-  off(event, fn){
+
+  off(event, fn) {
     this._callbacks = this._callbacks || {};
 
     // all
@@ -40,7 +40,7 @@ export class Observable{
     }
     return this;
   }
-  trigger(event){
+  trigger(event) {
     this._callbacks = this._callbacks || {};
     var args = [].slice.call(arguments, 1)
       , callbacks = this._callbacks[event];

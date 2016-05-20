@@ -12,7 +12,8 @@ svg {
 
 form {
   display: block;
-  float: left;
+  position:absolute;
+  margin-left:900px;
 }
 
 form h4 {
@@ -23,7 +24,11 @@ form label, form input {
   display: block;
 }
 
-div.wrapper{
+#box{
+  background-color: lightgrey;
+  padding-left: 25px;
+  padding-bottom: 20px;
+  padding-top:2px;
   width: 100%;
   height: 100%;
 }

@@ -9,15 +9,40 @@
   <script src="../bower_components/Snap.svg/dist/snap.svg.js"></script>
 </head>
 <body>
-  <form id="myForm_Rackcreate">
-    <h4>Rack Information:</h4>
-    <label>Height:</label>
-    <input id="width"  autocomplete="off" />
+  
+  <form id="slotForm">
+    <div id="box">
+    <h4>Slot/Shelf Information:</h4>
+    <p id="info"> You selected: <span></span></p>
+    <p id="relative_xposition"> Relative XPos of the selection: <span></span></p>
+    <p id="relative_yposition"> Relative YPos of the selection: <span></span></p>
+    <p id="absXpos"> Absolute X Position:<span></span></p>
+    <p id="absYpos"> Absolute Y Position:<span></span></p>
+   
+    
     <label>Width:</label>
+    <input id="width"  autocomplete="off" />
+    <label>Height:</label>
     <input id="height" autocomplete="off" />
-  	<button type="submit">Submit</button>
+    <label>Left:</label>
+    <input id="rLeft"  autocomplete="off" />
+    <label>Top:</label>
+    <input id="rTop"  autocomplete="off" />
+  	<button id="change_dimension" type="submit">Change</button>
+    <button id="save" type="submit">Save</button>
+    <button id="group">Group</button>
+    <button id="ungroup">Ungroup</button>
+    <button id="draw">Draw</button>
+    
+    <!--<h4>Relative position</h4>
+    <label>Left:</label>
+    <input id="rLeft"  autocomplete="off" />
+    <label>Top:</label>
+    <input id="rTop" autocomplete="off" />-->
+    </div>
   </form>
-  <div class="wrapper">
+  
+  <!--<div class="wrapper">-->
   <svg></svg>
   
   

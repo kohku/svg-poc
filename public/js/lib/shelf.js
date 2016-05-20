@@ -7,9 +7,9 @@ export class Component extends Observable {
     this.options = options
     this.view = undefined
   }
-  render(){
-    if (typeof this.view !== 'undefined' && this.view !== null){
-      this.view.attr({width: this.options.width, height: this.options.height})
+  render() {
+    if (typeof this.view !== 'undefined' && this.view !== null) {
+      this.view.attr({ x: this.options.x, y: this.options.y, width: this.options.width, height: this.options.height, rel_Xpos:this.options.rel_Xpos, rel_Ypos:this.options.rel_Ypos  })
       return
     }
     this._render()
@@ -22,6 +22,17 @@ export class Component extends Observable {
     
     this.view.drag()
   }
+}
+
+export class GroupComponent extends Component{
+ constructor(renderEngine, elements, options){
+    super(renderEngine, options)
+    this.elements = elements
+  }
+  _render(){
+    this.renderEngine.appendGroup(this)
+    return this.view;
+  }  
 }
 
 export class Slot extends Component {

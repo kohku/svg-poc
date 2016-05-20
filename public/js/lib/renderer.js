@@ -1,32 +1,45 @@
 import { Observable } from './observable'
-import { Slot, Shelf, Card, CardSlotContainer } from './shelf'
+import { Slot, Shelf, Card, CardSlotContainer, GroupComponent } from './shelf'
 
 export class RenderEngine extends Observable {
   constructor(selector){
     super()
+    this.componentsCollection = []
     this.paper = Snap(selector)
     this.buildControls()
     this.handleSelection()
   }
   
   buildControls(){
-    this.slotBuilder = this.paper.rect(50, 100, 25, 200, 3, 3)
+    this.slotBuilder = this.paper.rect(50, 10, 20, 50, 3, 3)
     this.slotBuilder.attr({
-      fill: "red",
+      fill: "#990000",
       stroke: "#000",
-      strokeWidth: 3
+      strokeWidth: 2
     })
     let self = this;
-    this.slotBuilder.node.onclick = function(){
+    this.slotBuilder.click(function(){
       self.trigger('buildSlot', self.slotBuilder)
-    }
+    })
   }
   
   _setView(component, view){
     component.view = view
-    component.view.node.onclick = function(){
-      component.trigger('click', component)
+
+    if (this.componentsCollection.indexOf(component) == -1){
+      this.componentsCollection.push(component)
     }
+
+    component.view.click(function(){
+      component.trigger('click', component)
+    })
+    component.view.drag(function(dx, dy, x, y, event){
+      component.trigger('dragMove', {dx: dx, dy: dy, x: x, y: y, event: event})
+    }, function(x, y, event){
+      component.trigger('dragStart', {x: x, y: y, event: event})
+    }, function(event){
+      component.trigger('dragEnd', event)
+    })
     return view;
   }
   
@@ -52,17 +65,36 @@ export class RenderEngine extends Observable {
       component.render()
     }
   }
+  
+  appendGroup(component){
+    if (!(component instanceof GroupComponent)){
+      throw Error("Component is not a group")
+    }
+    
+    return this._setView(component, this._buildGroup(component))
+  }
+  
+  _buildGroup(component){
+    let group = this.paper.g()
+    
+    component.elements.forEach(element => {
+      element.render()
+      group.add(element.view)
+    })
+    
+    return group;
+  }
 
   appendSlot(slot){
     return this._setView(slot, this._buildSlot(slot.options))
   }
   
   _buildSlot(options){
-    let slot = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
+    let slot = this.paper.rect(options.x, options.y, options.width, options.height,1,1)
     slot.attr({
-        fill: "#000",
+        fill: "#000099",
         stroke: "#000",
-        strokeWidth: 3
+        strokeWidth: 2
     });
     return slot;
   }
@@ -70,9 +102,10 @@ export class RenderEngine extends Observable {
   cloneSlot(){
     let clone = this.slotBuilder.clone()
     clone.attr({
-      x: parseInt(slotBuilder.node.attributes.x.value) + parseInt(slotBuilder.node.attributes.width.value) + 20
+      x: parseInt(this.slotBuilder.node.attributes.x.value) + parseInt(this.slotBuilder.node.attributes.width.value) + 20
     })
     clone.drag()
+    
     return clone
   }
   
@@ -84,6 +117,34 @@ export class RenderEngine extends Observable {
         strokeWidth: 3
     });
     return card;
+  }
+  
+  map(views){
+    if (typeof views === 'undefined' || views === null)
+      throw Error('Invalid operation')
+      
+    let result = []
+    if (Array.isArray(views)){
+      views.forEach(view => {
+        let item = this._map(view)
+        if (item != null){
+          result.push(item)
+        }
+      })
+    } else {
+      return this._map(views)
+    }
+    return result
+  }
+  
+  _map(view){
+    let current = null
+    this.componentsCollection.forEach(component => {
+      if (component.view === view){
+        current = component
+      }
+    })
+    return current
   }
   
   handleSelection(){
@@ -125,7 +186,7 @@ export class RenderEngine extends Observable {
             typeof item.node.attributes.x !== 'undefined' &&
             typeof item.node.attributes.y !== 'undefined' &&
             typeof item.node.attributes.width !== 'undefined' &&
-            typeof item.node.attributes.height !== 'undefined';
+            typeof item.node.attributes.height !== 'undefined'
         });
         
         filtered.forEach(function(item){
