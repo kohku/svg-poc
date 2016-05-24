@@ -16,6 +16,28 @@ export function main() {
   let dpi_x = document.getElementById('dpi').offsetWidth;
   let dpi_y = document.getElementById('dpi').offsetHeight;
 
+
+  $('#change_dimension').on('click', function (e) {
+    e.preventDefault()
+    if (Array.isArray(selectedItems)) {
+      return
+    }
+
+    if (selectedItems !== null) {
+      selectedItems.options.width = width.val() * dpi_x
+      selectedItems.options.height = height.val() * dpi_y
+      selectedItems.options.x = rLeft.val()
+      selectedItems.options.y = rTop.val()
+      selectedItems.options.rel_Xpos = (rLeft.val())
+      selectedItems.options.rel_Ypos = (rLeft.val())
+      selectedItems.options.Abs_X = rLeft.val()
+      selectedItems.options.Abs_Y = rTop.val()
+      selectedItems.render()
+
+      
+    }
+  })
+
   $('#save').on('click', function (e) {
     e.preventDefault()
     var xhttp = new XMLHttpRequest();
@@ -31,7 +53,7 @@ export function main() {
       "application/json");
 
     xhttp.send("CurrentX=," + rel_Xpos.text()
-      + ",CurrentY=," + rel_Ypos.text() + ",Width=," + width.val() + ",height=," + height.val());
+      + ",CurrentY=," + rel_Ypos.text() + ",Width=," + width.val() + ".height=," + height.val());
 
   })
 
@@ -46,43 +68,24 @@ export function main() {
     name.text(this.options.name)
     rLeft.val(this.options.x)
     rTop.val(this.options.y)
-    rel_Xpos.text(((this.options.x - 200)/dpi_x).toPrecision(4))
-     rel_Ypos.text(((this.options.y - 100)/dpi_x).toPrecision(4))
-    
+    rel_Xpos.text(this.options.x - 200)
+    rel_Ypos.text(this.options.y - 100)
     Abs_X.text(this.options.x)
     Abs_Y.text(this.options.y)
+
     selectedItems = this
   }
-
-  
-
-  $('#change_dimension').on('click', function (e) {
-    e.preventDefault()
-    if (Array.isArray(selectedItems)) {
-      return
-    }
-    if (selectedItems !== null) {
-      selectedItems.options.width = width.val() * dpi_x
-      selectedItems.options.height = height.val() * dpi_y
-      selectedItems.options.x = rLeft.val()
-      selectedItems.options.y = rTop.val()
-      selectedItems.options.rel_Xpos = (rLeft.val())
-      selectedItems.options.rel_Ypos = (rLeft.val())
-      selectedItems.options.Abs_X = rLeft.val()
-      selectedItems.options.Abs_Y = rTop.val()
-      selectedItems.render()
-    }
-  })
-
+ $('#change_dimension').on('click', onClick)
   shelf.on('click', onClick)
   renderEngine.on('onComponentsSelected', function (selection) {
     selectedItems = selection
     console.log(selection.length)
   })
 
+
   renderEngine.on('buildSlot', function (builder) {
     console.log(`Building slot`)
-    let newSlot = new Slot(renderEngine, { x: 20, y: 50, width: 20, height: 150, name: 'Slot' })
+    let newSlot = new Slot(renderEngine, { x: 20, y: 50, width: 20, height: 150, name: 'slot' })
     shelf.slots.addSlot(newSlot)
     console.log(`Shelf has ${shelf.slots.elements.length} slots`)
     newSlot.render()
@@ -114,6 +117,7 @@ export function main() {
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
     function loadSlot(response) {
+
       var arr = JSON.parse(response);
       var i;
       let shelf = new Shelf(renderEngine, { x: 200, y: 100, width: 700, height: 400, name: 'Shelf', rel_Xpos: 300, rel_Ypos: 100 })
@@ -123,6 +127,7 @@ export function main() {
         slot.on('click', onClick)
       }
       shelf.render()
+      //slot.on('click', onClick)
     }
 
   })

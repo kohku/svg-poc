@@ -9,7 +9,7 @@ export class Component extends Observable {
   }
   render() {
     if (typeof this.view !== 'undefined' && this.view !== null) {
-      this.view.attr({ x: this.options.x, y: this.options.y, width: this.options.width, height: this.options.height, rel_Xpos:this.options.rel_Xpos, rel_Ypos:this.options.rel_Ypos  })
+      this.view.attr({ x: this.options.x, y: this.options.y, width: this.options.width, height: this.options.height, name: this.options.name, rel_Xpos: this.options.rel_Xpos, rel_Ypos: this.options.rel_Ypos, Abs_X: this.options.Abs_X, Abs_Y: this.options.Abs_Y })
       return
     }
     this._render()
@@ -56,7 +56,7 @@ export class SlotContainer extends Component {
     }
     
     if (!(slot instanceof Slot)){
-      throw Error('Cannot add a object that is not a slot')
+      throw Error('Cannot add an object that is not a slot')
     }
     
     this.elements.push(slot);
