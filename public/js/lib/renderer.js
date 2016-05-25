@@ -11,13 +11,13 @@ export class RenderEngine extends Observable {
   }
 
   buildControls() {
-    this.slotBuilder = this.paper.rect(50, 10, 20, 50,  2, 2)
-        
+    this.slotBuilder = this.paper.rect(50, 10, 20, 50, 2, 2)
+
     this.slotBuilder.attr({
       fill: "#990000",
       stroke: "#000",
       strokeWidth: 2
-      
+
     })
     let self = this;
     this.slotBuilder.click(function () {
@@ -50,7 +50,7 @@ export class RenderEngine extends Observable {
   }
 
   _buildShelf(options) {
-    let shelf = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
+    let shelf = this.paper.rect(options.x, options.y, options.width, options.height, 2, 2)
     shelf.attr({
       fill: "#fff",
       stroke: "#000",
@@ -93,8 +93,9 @@ export class RenderEngine extends Observable {
   }
 
   _buildSlot(options) {
-    let slot = this.paper.rect(options.x, options.y, options.width, options.height, options.name, 0, 0)
-    let text = this.paper.text(options.x + options.width*0.2, options.y + options.height*0.6, options.name)
+
+    let slot = this.paper.rect(options.x, options.y, options.width, options.height, options.name, options.manufacturer, 1, 1)
+    let text = this.paper.text(options.x + options.width * 0.2, options.y + options.height * 0.6, options.name)
     slot.attr({
       fill: "transparent",
       stroke: "#000",
@@ -104,7 +105,6 @@ export class RenderEngine extends Observable {
       strokeWidth: 0.3,
       stroke: "#0066ff",
       fontSize: 11,
-      
     })
     return slot;
     return text;
@@ -115,7 +115,7 @@ export class RenderEngine extends Observable {
     clone.attr({
       x: parseInt(this.slotBuilder.node.attributes.x.value) + parseInt(this.slotBuilder.node.attributes.width.value) + 20
     })
-    
+
     clone.drag()
 
     return clone
@@ -168,10 +168,10 @@ export class RenderEngine extends Observable {
 
       let selection = self.paper.rect(event.clientX, event.clientY, 0, 0)
       selection.attr({
-        fill: "transparent",
-        stroke: "#303030",
-        strokeWidth: 0.5,
-        strokeDasharray: "5, 5"
+        fill: "#cc3300",
+        stroke: "#ff0000",
+        strokeWidth: 2.5
+        //strokeDasharray: "5, 5"
       });
       
       // selection is in process
@@ -209,7 +209,6 @@ export class RenderEngine extends Observable {
             candidates.push(item)
           }
         })
-
         try {
           self.trigger('onComponentsSelected', candidates)
         }

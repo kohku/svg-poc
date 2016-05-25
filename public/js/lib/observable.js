@@ -2,7 +2,6 @@ export class Observable {
   constructor() {
 
   }
-
   on(event, fn) {
     this._callbacks = this._callbacks || {};
     (this._callbacks[event] = this._callbacks[event] || [])

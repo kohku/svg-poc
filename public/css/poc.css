@@ -10,6 +10,30 @@ svg {
   height: 100%;
 }
 
+rect {
+  z-index: 9999;
+}
+
+.hover {
+  stroke: red;
+  
+ }
+
+text {
+  pointer-events: none;
+}
+
+#view{
+  position:relative;
+  margin-left:510px;
+  font-size:20px;
+  margin-top:-585px;
+  font-weight: bold;
+  color:#cc3300;
+  
+  
+}
+
 form {
   display: block;
   position:absolute;
