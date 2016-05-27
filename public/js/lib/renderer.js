@@ -4,11 +4,14 @@ import { Slot, Shelf, Card, CardSlotContainer } from './shelf'
 export class RenderEngine extends Observable {
   constructor(selector){
     super()
+    this.componentsCollection = []
     this.paper = Snap(selector)
     this.buildControls()
     this.handleSelection()
   }
   
+  // Render our drawing component icons
+  // this feature could be removed
   buildControls(){
     this.slotBuilder = this.paper.rect(50, 100, 25, 200, 3, 3)
     this.slotBuilder.attr({
@@ -21,12 +24,142 @@ export class RenderEngine extends Observable {
       self.trigger('buildSlot', self.slotBuilder)
     }
   }
+
+  // Handles the selection. Draw the square selection rectangle and
+  // triggers events
+  handleSelection(){
+    // selection starts
+    let self = this
+    this.paper.node.onmousedown = function(event){
+      if (self.paper.node !== event.target)
+        return
+
+      let selection = self.paper.rect(event.clientX, event.clientY, 0, 0)
+      selection.attr({
+        fill: "#efefef",
+        fillOpacity: 0.3,
+        stroke: "#101010",
+        strokeWidth: 0.1,
+        strokeDasharray: "5, 5"
+      });
+      
+      // selection is in process
+      self.paper.node.onmousemove = function(event){
+        selection.attr({
+          width: event.clientX - selection.node.attributes.x.value,
+          height: event.clientY - selection.node.attributes.y.value
+        })
+      }
+      
+      self.paper.node.mouseleave = self.paper.node.mouselout = function(){
+        self.paper.node.onmousemove = null
+        self.paper.node.onmouseup = null
+        selection.remove()
+        selection = null
+      }
+      
+      // selection has been made
+      self.paper.node.onmouseup = function(event){
+        var candidates = []
+        var all = self.paper.selectAll("svg *").items
+        var filtered = all.filter(function(item){
+          return item !== selection &&
+            typeof item.node.attributes.x !== 'undefined' &&
+            typeof item.node.attributes.y !== 'undefined' &&
+            typeof item.node.attributes.width !== 'undefined' &&
+            typeof item.node.attributes.height !== 'undefined';
+        });
+        
+        filtered.forEach(function(item){
+          if (item.getBBox().x >= selection.getBBox().x &&
+            item.getBBox().y >= selection.getBBox().y &&
+            item.getBBox().width <= selection.getBBox().width &&
+            item.getBBox().height <= selection.getBBox().height){
+            let length = self.componentsCollection.length
+            for(let index = 0; index < length; index++){
+              let component = self.componentsCollection[index]
+              if (component.view === item){
+                candidates.push(component)
+              }
+            }
+          }
+        })
+        
+        try {
+          self.trigger('onComponentsSelected', candidates)
+        }
+        finally {
+          self.paper.node.onmousemove = null
+          self.paper.node.onmouseup = null
+          selection.remove()
+          selection = null
+        }
+      }     
+    }
+  }
+  
+  map(views) {
+    if (typeof views === 'undefined' || views === null)
+      throw Error('Invalid operation')
+
+    let result = []
+    if (Array.isArray(views)) {
+      views.forEach(view => {
+        let item = this._map(view)
+        if (item != null) {
+          result.push(item)
+        }
+      })
+    } else {
+      return this._map(views)
+    }
+    return result
+  }
+
+  _map(view) {
+    let current = null
+    this.componentsCollection.forEach(component => {
+      if (component.view === view) {
+        current = component
+      }
+    })
+    return current
+  }
+    
+  createShelf(options){
+    return new Shelf(this, options)
+  }
+  
+  createSlot(options){
+    return new Slot(this, options)
+  }
+  
+  createCard(options){
+    return new Card(this, options)
+  }
+  
+  createSlotContainer(options){
+    return new CardSlotContainer(this, options)
+  }
   
   _setView(component, view){
     component.view = view
-    component.view.node.onclick = function(){
-      component.trigger('click', component)
+    
+    if (this.componentsCollection.indexOf(component) == -1) {
+      this.componentsCollection.push(component)
     }
+
+    component.view.click(function () {
+      component.trigger('click', component)
+    })
+    component.view.drag(function (dx, dy, x, y, event) {
+      component.trigger('dragMove', { dx: dx, dy: dy, x: x, y: y, event: event })
+    }, function (x, y, event) {
+      component.trigger('dragStart', { x: x, y: y, event: event })
+    }, function (event) {
+      component.trigger('dragEnd', event)
+    })
+    
     return view;
   }
   
@@ -85,68 +218,6 @@ export class RenderEngine extends Observable {
     });
     return card;
   }
-  
-  handleSelection(){
-    // selection starts
-    let self = this
-    this.paper.node.onmousedown = function(event){
-      if (self.paper.node !== event.target)
-        return
 
-      let selection = self.paper.rect(event.clientX, event.clientY, 0, 0)
-      selection.attr({
-        fill: "transparent",
-        stroke: "#303030",
-        strokeWidth: 0.5,
-        strokeDasharray: "5, 5"
-      });
-      
-      // selection is in process
-      self.paper.node.onmousemove = function(event){
-        selection.attr({
-          width: event.clientX - selection.node.attributes.x.value,
-          height: event.clientY - selection.node.attributes.y.value
-        })
-      }
-      
-      self.paper.node.mouseleave = self.paper.node.mouselout = function(){
-        self.paper.node.onmousemove = null
-        self.paper.node.onmouseup = null
-        selection.remove()
-        selection = null
-      }
-      
-      // selection has been made
-      self.paper.node.onmouseup = function(event){
-        var candidates = []
-        var all = self.paper.selectAll("svg *").items
-        var filtered = all.filter(function(item){
-          return item !== selection &&
-            typeof item.node.attributes.x !== 'undefined' &&
-            typeof item.node.attributes.y !== 'undefined' &&
-            typeof item.node.attributes.width !== 'undefined' &&
-            typeof item.node.attributes.height !== 'undefined';
-        });
-        
-        filtered.forEach(function(item){
-          if (item.getBBox().x >= selection.getBBox().x &&
-            item.getBBox().y >= selection.getBBox().y &&
-            item.getBBox().width <= selection.getBBox().width &&
-            item.getBBox().height <= selection.getBBox().height){
-            candidates.push(item)
-          }
-        })
-        
-        try {
-          self.trigger('onComponentsSelected', candidates)
-        }
-        finally {
-          self.paper.node.onmousemove = null
-          self.paper.node.onmouseup = null
-          selection.remove()
-          selection = null
-        }
-      }     
-    }
-  }
+
 }
