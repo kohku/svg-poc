@@ -13,16 +13,24 @@ export class RenderEngine extends Observable {
   // Render our drawing component icons
   // this feature could be removed
   buildControls(){
-//    this.slotBuilder = this.createSlot({50, 100, 25, 200, 3, 3})
-    // this.slotBuilder.attr({
-    //   fill: "red",
-    //   stroke: "#000",
-    //   strokeWidth: 3
-    // })
-    // let self = this;
-    // this.slotBuilder.node.onclick = function(){
-    //   self.trigger('onCloned', self.clone)
-    // }
+    let shelfBuilder = this.createShelf({x: 300, y: 100, width: 500, height: 250})
+    shelfBuilder.render()
+    let slotBuilder = this.createSlot({x: 0, y: 100, width: 25, height: 200})
+    slotBuilder.render()
+    slotBuilder.onClick(function(){
+      let clone = slotBuilder.clone()
+      clone.options.x = slotBuilder.options.x + slotBuilder.options.width + 20
+      clone.render()
+      clone.drag()
+    })
+    let cardBuilder = this.createCard({x: 0, y: 350, width: 25, height: 200})
+    cardBuilder.render()
+    cardBuilder.onClick(function(){
+      let clone = cardBuilder.clone()
+      clone.options.x = cardBuilder.options.x + cardBuilder.options.width + 20
+      clone.render()
+      clone.drag()
+    })
   }
 
   // Handles the selection. Draw the square selection rectangle and
