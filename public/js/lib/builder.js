@@ -1,5 +1,5 @@
 import { Observable } from './observable'
-import { Slot, Shelf, Card, CardSlotContainer } from './shelf'
+import { Slot, Shelf, Card, CardSlotContainer } from './components'
 
 export class RenderEngine extends Observable {
   constructor(selector){
@@ -13,16 +13,16 @@ export class RenderEngine extends Observable {
   // Render our drawing component icons
   // this feature could be removed
   buildControls(){
-    this.slotBuilder = this.paper.rect(50, 100, 25, 200, 3, 3)
-    this.slotBuilder.attr({
-      fill: "red",
-      stroke: "#000",
-      strokeWidth: 3
-    })
-    let self = this;
-    this.slotBuilder.node.onclick = function(){
-      self.trigger('buildSlot', self.slotBuilder)
-    }
+//    this.slotBuilder = this.createSlot({50, 100, 25, 200, 3, 3})
+    // this.slotBuilder.attr({
+    //   fill: "red",
+    //   stroke: "#000",
+    //   strokeWidth: 3
+    // })
+    // let self = this;
+    // this.slotBuilder.node.onclick = function(){
+    //   self.trigger('onCloned', self.clone)
+    // }
   }
 
   // Handles the selection. Draw the square selection rectangle and
@@ -33,11 +33,13 @@ export class RenderEngine extends Observable {
     this.paper.node.onmousedown = function(event){
       if (self.paper.node !== event.target)
         return
-
-      let selection = self.paper.rect(event.clientX, event.clientY, 0, 0)
+      
+      let offsetX = event.offsetX
+      let offsetY = event.offsetY
+      let selection = self.paper.rect(offsetX, offsetY, 0, 0)
       selection.attr({
         fill: "#efefef",
-        fillOpacity: 0.3,
+        fillOpacity: 0.5,
         stroke: "#101010",
         strokeWidth: 0.1,
         strokeDasharray: "5, 5"
@@ -46,8 +48,8 @@ export class RenderEngine extends Observable {
       // selection is in process
       self.paper.node.onmousemove = function(event){
         selection.attr({
-          width: event.clientX - selection.node.attributes.x.value,
-          height: event.clientY - selection.node.attributes.y.value
+          width: event.offsetX,
+          height: event.offsetY
         })
       }
       
@@ -86,7 +88,7 @@ export class RenderEngine extends Observable {
         })
         
         try {
-          self.trigger('onComponentsSelected', candidates)
+          self.trigger('onSelected', candidates)
         }
         finally {
           self.paper.node.onmousemove = null
@@ -98,34 +100,6 @@ export class RenderEngine extends Observable {
     }
   }
   
-  map(views) {
-    if (typeof views === 'undefined' || views === null)
-      throw Error('Invalid operation')
-
-    let result = []
-    if (Array.isArray(views)) {
-      views.forEach(view => {
-        let item = this._map(view)
-        if (item != null) {
-          result.push(item)
-        }
-      })
-    } else {
-      return this._map(views)
-    }
-    return result
-  }
-
-  _map(view) {
-    let current = null
-    this.componentsCollection.forEach(component => {
-      if (component.view === view) {
-        current = component
-      }
-    })
-    return current
-  }
-    
   createShelf(options){
     return new Shelf(this, options)
   }
@@ -142,10 +116,10 @@ export class RenderEngine extends Observable {
     return new CardSlotContainer(this, options)
   }
   
-  _setView(component, view){
+  setView(component, view){
     component.view = view
     
-    if (this.componentsCollection.indexOf(component) == -1) {
+    if (this.componentsCollection.indexOf(component) === -1) {
       this.componentsCollection.push(component)
     }
 
@@ -163,11 +137,30 @@ export class RenderEngine extends Observable {
     return view;
   }
   
-  appendShelf(shelf){
-    return this._setView(shelf, this._buildShelf(shelf.options))
+  // Creates the svg element associated to the component 
+  // set the component's view (svg element) 
+  // and listen for common events
+  // returns the view
+  appendComponent(component){
+    let view = null
+    
+    if (component instanceof Shelf){
+      view = this.buildShelf(component.options)
+    } else if (component instanceof Slot){
+      view = this.buildSlot(component.options)
+    } else if (component instanceof Card){
+      view = this.buildCard(component.options)
+    } else if (component instanceof CardSlotContainer){
+      view = this.buildCardSlot(component.options)
+    } else {
+      throw Error('Unknown component')
+    }
+    
+    return this.setView(component, view) 
   }
   
-  _buildShelf(options){
+  // Builds a svg element associated with a Shelf
+  buildShelf(options){
     let shelf = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     shelf.attr({
         fill: "#c0c0c0",
@@ -176,21 +169,9 @@ export class RenderEngine extends Observable {
     })
     return shelf
   }
-  
-  appendComponent(parent, component){
-    if (Array.isArray(component)){
-      component.forEach(item => item.render())
-    }
-    else {
-      component.render()
-    }
-  }
 
-  appendSlot(slot){
-    return this._setView(slot, this._buildSlot(slot.options))
-  }
-  
-  _buildSlot(options){
+  // Builds a svg element associated with a Slot
+  buildSlot(options){
     let slot = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     slot.attr({
         fill: "#000",
@@ -200,24 +181,38 @@ export class RenderEngine extends Observable {
     return slot;
   }
   
-  cloneSlot(){
-    let clone = this.slotBuilder.clone()
-    clone.attr({
-      x: parseInt(slotBuilder.node.attributes.x.value) + parseInt(slotBuilder.node.attributes.width.value) + 20
-    })
-    clone.drag()
-    return clone
-  }
-  
-  buildCard(){
-    let card = this.paper.rect(300, 100, 500, 250, 3, 3)
+  // Builds a svg element associated with a Card
+  buildCard(options){
+    let card = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     card.attr({
-        fill: "#c0c0c0",
+        fill: "#cdcd00",
         stroke: "#000",
         strokeWidth: 3
     });
     return card;
   }
-
-
+  
+  // Builds a svg element associated with a Card slot
+  buildCardSlot(options){
+    let cardSlot = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
+    cardSlot.attr({
+        fill: "#00cdcd",
+        stroke: "#000",
+        strokeWidth: 3
+    });
+    return cardSlot;
+  }
+  
+  removeComponent(component){
+    // find component index
+    let index = this.componentsCollection.indexOf(component)
+    
+    if (index !== -1) {
+      // unbind events
+      component.view.undrag()
+      component.view.onclick = null
+      // remove it from class
+      this.componentsCollection.splice(index, 1)
+    }
+ }
 }

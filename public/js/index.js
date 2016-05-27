@@ -1,5 +1,5 @@
-import { RenderEngine } from './lib/renderer'
-import { Slot, Shelf, Card, CardSlotContainer } from './lib/shelf'
+import { RenderEngine } from './lib/builder'
+import { Slot, Shelf, Card, CardSlotContainer } from './lib/components'
 
 export function main(){
   
@@ -17,12 +17,12 @@ export function main(){
     }
   })
     
-  let renderer = new RenderEngine("svg")
+  let builder = new RenderEngine("svg")
   
-  let shelf = renderer.createShelf({x: 300, y: 100, width: 500, height: 250})
+  let shelf = builder.createShelf({x: 300, y: 100, width: 500, height: 250})
   
-  let slot1 = renderer.createSlot({x: 325, y: 125, width: 25, height: 200})
-  let slot2 = renderer.createSlot({x: 375, y: 125, width: 25, height: 200})
+  let slot1 = builder.createSlot({x: 325, y: 125, width: 25, height: 200})
+  let slot2 = builder.createSlot({x: 375, y: 125, width: 25, height: 200})
   
   shelf.slots.addSlot(slot1)
   shelf.slots.addSlot(slot2)
@@ -47,19 +47,19 @@ export function main(){
   slot1.on('click', resize)
   slot2.on('click', resize)
   
-  renderer.on('onComponentsSelected', function(selection){
+  builder.on('onSelected', function(selection){
     console.log(`You selected ${selection.length} items`)
   })
   
-  renderer.on('buildSlot', function(builder){
-    console.log(`Building slot1`)
-    let newSlot = new Slot(renderer, {x: 50, y: 50})
-    shelf.slots.addSlot(slot1)
-    console.log(`Shelf has ${shelf.slots.elements.length} slot1`)
-    newSlot.render()
-    newSlot.drag()
+  // feature to be removed
+  builder.on('onCloned', function(builder){
+    // console.log(`Building slot1`)
+    // let newSlot = new Slot(builder, {x: 50, y: 50})
+    // shelf.slots.addSlot(slot1)
+    // console.log(`Shelf has ${shelf.slots.elements.length} slot1`)
+    // newSlot.render()
+    // newSlot.drag()
   })
-  
 }
 
 main();
