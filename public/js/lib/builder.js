@@ -41,23 +41,26 @@ export class RenderEngine extends Observable {
     this.paper.node.onmousedown = function(event){
       if (self.paper.node !== event.target)
         return
+        
+      event.stopImmediatePropagation()
       
       let offsetX = event.offsetX
       let offsetY = event.offsetY
       let selection = self.paper.rect(offsetX, offsetY, 0, 0)
       selection.attr({
-        fill: "#efefef",
-        fillOpacity: 0.5,
-        stroke: "#101010",
+        fill: "#ededed",
+        fillOpacity: 0.4,
+        stroke: "#030303",
         strokeWidth: 0.1,
         strokeDasharray: "5, 5"
       });
       
       // selection is in process
       self.paper.node.onmousemove = function(event){
+        event.stopImmediatePropagation()
         selection.attr({
-          width: event.offsetX,
-          height: event.offsetY
+          width: event.offsetX - offsetX,
+          height: event.offsetY - offsetY
         })
       }
       
