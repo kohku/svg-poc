@@ -39,10 +39,12 @@ export class RenderEngine extends Observable {
     // selection starts
     let self = this
     this.paper.node.onmousedown = function(event){
-      if (self.paper.node !== event.target)
+      if (self.paper.node !== event.target){
         return
-        
+      }
       event.stopImmediatePropagation()
+      event.stopPropagation()
+      event.preventDefault()
       
       let offsetX = event.offsetX
       let offsetY = event.offsetY
@@ -58,13 +60,23 @@ export class RenderEngine extends Observable {
       // selection is in process
       self.paper.node.onmousemove = function(event){
         event.stopImmediatePropagation()
-        selection.attr({
-          width: event.offsetX - offsetX,
-          height: event.offsetY - offsetY
-        })
+        event.stopPropagation()
+        event.preventDefault()
+        if (event.target !== self.paper.node){
+          let rect = self.paper.node.getBoundingClientRect()
+          selection.attr({
+            width: event.clientX - rect.left - offsetX,
+            height: event.clientY - rect.top - offsetY
+          })
+        } else {
+          selection.attr({
+            width: event.offsetX - offsetX,
+            height: event.offsetY - offsetY
+          })
+        }
       }
       
-      self.paper.node.mouseleave = self.paper.node.mouselout = function(){
+      self.paper.node.mouseleave = self.paper.node.mouseout = function(){
         self.paper.node.onmousemove = null
         self.paper.node.onmouseup = null
         selection.remove()

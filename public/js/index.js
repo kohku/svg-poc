@@ -4,18 +4,18 @@ import { Slot, Shelf, Card, CardSlotContainer } from './lib/components'
 export function main(){
   
   let selection = null;
-  let width = $('#width');
-  let height = $('#height');
+  // let width = $('#width');
+  // let height = $('#height');
   
-  let submit = $('form button[type="submit"]').on('click', function(e){
-    e.preventDefault()
+  // let submit = $('form button[type="submit"]').on('click', function(e){
+  //   e.preventDefault()
     
-    if (selection !== null){
-      selection.options.width = width.val()
-      selection.options.height = height.val()
-      selection.render()
-    }
-  })
+  //   if (selection !== null){
+  //     selection.options.width = width.val()
+  //     selection.options.height = height.val()
+  //     selection.render()
+  //   }
+  // })
     
   let builder = new RenderEngine("svg")
   
