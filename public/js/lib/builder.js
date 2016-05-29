@@ -238,4 +238,16 @@ export class RenderEngine extends Observable {
       this.componentsCollection.splice(index, 1)
     }
  }
+ 
+ group(selection){
+   let group = this.paper.g()
+   
+   selection.filter(component => {
+     return this.componentsCollection.indexOf(component) >= 0
+    }).forEach(component => {
+      group.add(component) 
+    })
+   
+   return group
+ }
 }

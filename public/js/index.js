@@ -49,6 +49,8 @@ export function main(){
   
   builder.on('onSelected', function(selection){
     console.log(`You selected ${selection.length} items`)
+    
+    builder.group(selection)
   })
   
   // feature to be removed
