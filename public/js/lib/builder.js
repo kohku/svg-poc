@@ -2,30 +2,30 @@ import { Observable } from './observable'
 import { Slot, Shelf, Card, CardSlotContainer } from './components'
 
 export class RenderEngine extends Observable {
-  constructor(selector){
+  constructor(selector) {
     super()
     this.componentsCollection = []
     this.paper = Snap(selector)
     this.buildControls()
     this.handleSelection()
   }
-  
+
   // Render our drawing component icons
   // this feature could be removed
-  buildControls(){
-    let shelfBuilder = this.createShelf({x: 300, y: 100, width: 500, height: 250})
+  buildControls() {
+    let shelfBuilder = this.createShelf({ x: 300, y: 100, width: 500, height: 250 })
     shelfBuilder.render()
-    let slotBuilder = this.createSlot({x: 0, y: 100, width: 25, height: 200})
+    let slotBuilder = this.createSlot({ x: 0, y: 100, width: 25, height: 200 })
     slotBuilder.render()
-    slotBuilder.onClick(function(){
+    slotBuilder.onClick(function () {
       let clone = slotBuilder.clone()
       clone.options.x = slotBuilder.options.x + slotBuilder.options.width + 20
       clone.render()
       clone.drag()
     })
-    let cardBuilder = this.createCard({x: 0, y: 350, width: 25, height: 200})
+    let cardBuilder = this.createCard({ x: 0, y: 350, width: 25, height: 200 })
     cardBuilder.render()
-    cardBuilder.onClick(function(){
+    cardBuilder.onClick(function () {
       let clone = cardBuilder.clone()
       clone.options.x = cardBuilder.options.x + cardBuilder.options.width + 20
       clone.render()
@@ -35,17 +35,17 @@ export class RenderEngine extends Observable {
 
   // Handles the selection. Draw the square selection rectangle and
   // triggers events
-  handleSelection(){
+  handleSelection() {
     // selection starts
     let self = this
-    this.paper.node.onmousedown = function(event){
-      if (self.paper.node !== event.target){
+    this.paper.node.onmousedown = function (event) {
+      if (self.paper.node !== event.target) {
         return
       }
       event.stopImmediatePropagation()
       event.stopPropagation()
       event.preventDefault()
-      
+
       let offsetX = event.offsetX
       let offsetY = event.offsetY
       let selection = self.paper.rect(offsetX, offsetY, 0, 0)
@@ -56,13 +56,13 @@ export class RenderEngine extends Observable {
         strokeWidth: 0.1,
         strokeDasharray: "5, 5"
       });
-      
+
       // selection is in process
-      self.paper.node.onmousemove = function(event){
+      self.paper.node.onmousemove = function (event) {
         event.stopImmediatePropagation()
         event.stopPropagation()
         event.preventDefault()
-        if (event.target !== self.paper.node){
+        if (event.target !== self.paper.node) {
           let rect = self.paper.node.getBoundingClientRect()
           selection.attr({
             width: event.clientX - rect.left - offsetX,
@@ -75,41 +75,41 @@ export class RenderEngine extends Observable {
           })
         }
       }
-      
-      self.paper.node.mouseleave = self.paper.node.mouseout = function(){
+
+      self.paper.node.mouseleave = self.paper.node.mouseout = function () {
         self.paper.node.onmousemove = null
         self.paper.node.onmouseup = null
         selection.remove()
         selection = null
       }
-      
+
       // selection has been made
-      self.paper.node.onmouseup = function(event){
+      self.paper.node.onmouseup = function (event) {
         var candidates = []
         var all = self.paper.selectAll("svg *").items
-        var filtered = all.filter(function(item){
+        var filtered = all.filter(function (item) {
           return item !== selection &&
             typeof item.node.attributes.x !== 'undefined' &&
             typeof item.node.attributes.y !== 'undefined' &&
             typeof item.node.attributes.width !== 'undefined' &&
             typeof item.node.attributes.height !== 'undefined';
         });
-        
-        filtered.forEach(function(item){
+
+        filtered.forEach(function (item) {
           if (item.getBBox().x >= selection.getBBox().x &&
             item.getBBox().y >= selection.getBBox().y &&
             item.getBBox().width <= selection.getBBox().width &&
-            item.getBBox().height <= selection.getBBox().height){
+            item.getBBox().height <= selection.getBBox().height) {
             let length = self.componentsCollection.length
-            for(let index = 0; index < length; index++){
+            for (let index = 0; index < length; index++) {
               let component = self.componentsCollection[index]
-              if (component.view === item){
+              if (component.view === item) {
                 candidates.push(component)
               }
             }
           }
         })
-        
+
         try {
           self.trigger('onSelected', candidates)
         }
@@ -119,29 +119,29 @@ export class RenderEngine extends Observable {
           selection.remove()
           selection = null
         }
-      }     
+      }
     }
   }
-  
-  createShelf(options){
+
+  createShelf(options) {
     return new Shelf(this, options)
   }
-  
-  createSlot(options){
+
+  createSlot(options) {
     return new Slot(this, options)
   }
-  
-  createCard(options){
+
+  createCard(options) {
     return new Card(this, options)
   }
-  
-  createSlotContainer(options){
+
+  createSlotContainer(options) {
     return new CardSlotContainer(this, options)
   }
-  
-  setView(component, view){
+
+  setView(component, view) {
     component.view = view
-    
+
     if (this.componentsCollection.indexOf(component) === -1) {
       this.componentsCollection.push(component)
     }
@@ -156,80 +156,80 @@ export class RenderEngine extends Observable {
     }, function (event) {
       component.trigger('dragEnd', event)
     })
-    
+
     return view;
   }
-  
+
   // Creates the svg element associated to the component 
   // set the component's view (svg element) 
   // and listen for common events
   // returns the view
-  appendComponent(component){
+  appendComponent(component) {
     let view = null
-    
-    if (component instanceof Shelf){
+
+    if (component instanceof Shelf) {
       view = this.buildShelf(component.options)
-    } else if (component instanceof Slot){
+    } else if (component instanceof Slot) {
       view = this.buildSlot(component.options)
-    } else if (component instanceof Card){
+    } else if (component instanceof Card) {
       view = this.buildCard(component.options)
-    } else if (component instanceof CardSlotContainer){
+    } else if (component instanceof CardSlotContainer) {
       view = this.buildCardSlot(component.options)
     } else {
       throw Error('Unknown component')
     }
-    
-    return this.setView(component, view) 
+
+    return this.setView(component, view)
   }
-  
+
   // Builds a svg element associated with a Shelf
-  buildShelf(options){
+  buildShelf(options) {
     let shelf = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     shelf.attr({
-        fill: "#c0c0c0",
-        stroke: "#000",
-        strokeWidth: 3
+      fill: "#c0c0c0",
+      stroke: "#000",
+      strokeWidth: 3
     })
     return shelf
   }
 
   // Builds a svg element associated with a Slot
-  buildSlot(options){
+  buildSlot(options) {
     let slot = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     slot.attr({
-        fill: "#000",
-        stroke: "#000",
-        strokeWidth: 3
+      fill: "#000",
+      stroke: "#000",
+      strokeWidth: 3
     });
     return slot;
   }
-  
+
   // Builds a svg element associated with a Card
-  buildCard(options){
+  buildCard(options) {
     let card = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     card.attr({
-        fill: "#cdcd00",
-        stroke: "#000",
-        strokeWidth: 3
+      fill: "#cdcd00",
+      stroke: "#000",
+      strokeWidth: 3
     });
     return card;
   }
-  
+
   // Builds a svg element associated with a Card slot
-  buildCardSlot(options){
+  buildCardSlot(options) {
     let cardSlot = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
     cardSlot.attr({
-        fill: "#00cdcd",
-        stroke: "#000",
-        strokeWidth: 3
+      fill: "#00cdcd",
+      stroke: "#000",
+      strokeWidth: 3
     });
     return cardSlot;
   }
-  
-  removeComponent(component){
+
+  removeComponent(component) {
     // find component index
     let index = this.componentsCollection.indexOf(component)
-    
+
     if (index !== -1) {
       // unbind events
       component.view.undrag()
@@ -237,17 +237,22 @@ export class RenderEngine extends Observable {
       // remove it from class
       this.componentsCollection.splice(index, 1)
     }
- }
- 
- group(selection){
-   let group = this.paper.g()
-   
-   selection.filter(component => {
-     return this.componentsCollection.indexOf(component) >= 0
+  }
+
+  group(selection) {
+    let group = this.paper.g()
+
+    selection.filter(component => {
+      return this.componentsCollection.indexOf(component) >= 0
     }).forEach(component => {
-      group.add(component) 
+      group.add(component.view)
     })
-   
-   return group
- }
+
+    return group
+  }
+  
+  ungroup(selection) {
+    debugger
+        
+  }
 }
