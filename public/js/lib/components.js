@@ -9,7 +9,12 @@ export class Component extends Observable {
   }
   render(){
     if (typeof this.view !== 'undefined' && this.view !== null){
-      this.view.attr({width: this.options.width, height: this.options.height})
+      this.view.attr({
+        x: this.options.x,
+        y: this.options.y,
+        width: this.options.width, 
+        height: this.options.height
+      })
       return this.view
     }
     this.generate()
@@ -42,6 +47,47 @@ export class Component extends Observable {
 
 export class Rack extends Component{
   constructor(builder, options){
+    super(builder, options)
+    if (typeof this.options.header !== 'undefined' && this.options.header !== null){
+      this.header = new RackHeader(this.builder, {})
+    }
+    if (typeof this.options.footer !== 'undefined' && this.options.footer !== null){
+      this.footer = new RackFooter(tuis.builder, {})
+    }
+  }
+  render(){
+    super.render()
+    if (typeof this.header !== 'undefined' && this.header !== null){
+      let options = {
+        x: this.options.x,
+        y: this.options.y,
+        width: this.options.width,
+        height: this.options.header.height
+      }
+      this.header.options = options
+      this.header.render()
+    }
+    if (typeof this.footer !== 'undefined' && this.footer !== null){
+      let options = {
+        x: this.options.x,
+        y: this.options.y + this.options.height - this.options.footer.height,
+        width: this.options.width,
+        height: this.options.header.height
+      }
+      this.footer.options = options
+      this.footer.render()
+    }
+  }
+}
+
+export class RackHeader extends Component {
+  constructor(builder, options){
+    super(builder, options)
+  }
+}
+
+export class RackFooter extends Component {
+  constructor(){
     super(builder, options)
   }
 }

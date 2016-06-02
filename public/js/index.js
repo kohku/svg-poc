@@ -97,11 +97,11 @@ export function main(){
   console.log("calcHdr " +calcHdr )
   console.log("calcFtr " +calcFtr )
   e.preventDefault()
-    rack = builder.createRack({ x: margin, y: margin, width: calcWidth, height: calcHeight})
+    rack = builder.createRack({ x: margin, y: margin, width: calcWidth, height: calcHeight, header: { height: 1.7 }, footer: { height: 1.7 }})
      rack.render()
    let noOfMounts=Math.floor(dbHeight/1.75);
   // console.log("No of Mount " + noOfMounts)
-   let Header = builder.createRack({ x: margin, y: margin-calcHdr, width: calcWidth, height: calcHdr})
+   let Header = builder.createRack({ x: margin, y: margin-calcHdr, width: calcWidth, height: calcHdr })
    let Footer = builder.createRack({ x: margin, y: margin+calcHeight, width: calcWidth, height: calcFtr})
     Header.render()
     Footer.render()

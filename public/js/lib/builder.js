@@ -150,16 +150,19 @@ export class RenderEngine extends Observable {
       this.componentsCollection.push(component)
     }
 
-    component.view.click(function () {
-      component.trigger('click', component)
-    })
-    component.view.drag(function (dx, dy, x, y, event) {
-      component.trigger('dragMove', { dx: dx, dy: dy, x: x, y: y, event: event })
-    }, function (x, y, event) {
-      component.trigger('dragStart', { x: x, y: y, event: event })
-    }, function (event) {
-      component.trigger('dragEnd', event)
-    })
+    if (!(component instanceof RackHeader) &&
+      !(component instanceof RackFooter)){
+      component.view.click(function () {
+        component.trigger('click', component)
+      })
+      component.view.drag(function (dx, dy, x, y, event) {
+        component.trigger('dragMove', { dx: dx, dy: dy, x: x, y: y, event: event })
+      }, function (x, y, event) {
+        component.trigger('dragStart', { x: x, y: y, event: event })
+      }, function (event) {
+        component.trigger('dragEnd', event)
+      })
+    }
 
     return view;
   }
@@ -170,8 +173,12 @@ export class RenderEngine extends Observable {
   // returns the view
   appendComponent(component) {
     let view = null
-     if (component instanceof Rack){
+    if (component instanceof Rack){
       view = this.buildRack(component.options)
+    } else if (component instanceof RackHeader){
+      view = this.buildRackHeader(component.options)
+    } else if (component instanceof RackFooter){
+      view = this.buildRackFooter(component.options)
     } else if (component instanceof Shelf){
       view = this.buildShelf(component.options)
     } else if (component instanceof Slot) {
@@ -185,6 +192,24 @@ export class RenderEngine extends Observable {
     }
 
     return this.setView(component, view)
+  }
+  buildRackHeader(options){
+    let header = this.paper.rect(options.x, options.y, options.width, options.height, 1, 1)
+    header.attr({
+        fill: "#fff",
+        stroke: "#000",
+        strokeWidth: 2
+    })
+    return header
+  }
+  buildRackFooter(options){
+    let footer = this.paper.rect(options.x, options.y, options.width, options.height, 1, 1)
+    footer.attr({
+        fill: "#fff",
+        stroke: "#000",
+        strokeWidth: 2
+    })
+    return footer
   }
   // Builds a svg element associated with a Rack
    buildRack(options){
