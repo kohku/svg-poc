@@ -1,0 +1,381 @@
+/* ---------------------------------------------------------*/
+/*               Order Manager Menu Style                   */
+/* ---------------------------------------------------------*/
+#appNav {
+    left: 2px;
+    list-style: none;
+    position: absolute;
+    position:fixed;
+    top: 0px;
+    min-width: 160px; 
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  /*  border: solid 1px;*/
+   /* border: 1px solid #ccc;*/
+    /*border-color: #d0d0d0;*/
+    /*background-color: #393c4a;*/
+    height: 92% !important; 
+   /* border: 1px solid #ABA9AA;
+    border-width:1px 0px 0px 0px;*/
+    border:1px solid #CCC;
+}
+
+#appNav li {
+    margin-bottom: 10px;
+    /*height: 20px;*/ 
+
+    margin-bottom:0px;
+    /*height:32px;*/
+   /* border: 1px solid #ABA9AA;
+    border-top:0px;*/
+}
+
+.navchild{
+    padding-left:15px !important;
+}
+
+#appNav li{ border:1px solid #ABA9AA;border-bottom:0;border-right:0;border-left:0;}
+#appNav li:first-child{border-top:0;}
+#appNav li:last-child{border-bottom:1px solid #CCC;}
+#appNav li .ui-sortable li{border:0; border-top:1px solid #ABA9AA;}
+#appNav .ui-sortable li a {background:#FFF;font-weight:normal;padding: 9px;filter:none;}
+#appNav li div.ui-sortable:before{content: '\25BC'; font-size:11px; float:right; margin-top:-22px; position:relative; right:7px;}
+#appNav li a:hover,#appNav li .ui-sortable li a:hover{ color: #666 !important; }
+#panel-poster{ margin:0}
+#appNav .navchildselect{ background:#F5F5F5 !important;}
+
+#appNav li a {
+    display: block;
+    font-size: 12px;
+    padding: 7px 5px 7px 7px;
+    text-decoration: none;
+    text-transform: none;
+    font-weight: bold;
+    overflow: auto;
+    white-space: normal;
+   /*xx margin-bottom: -2px;*/
+   /*margin-top:-1px;*/
+
+ color:#06c ;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f4f4f4 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f4f4f4)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f4f4f4 100%); /* W3C */
+    
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#f4f4f4,GradientType=0)" ;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#f4f4f4,GradientType=0) ;
+
+    cursor:pointer;
+   /* height:32px;*/
+    padding-top:7px;
+    padding-left:7px;
+    font-size:12px;
+	/*border-top:1px solid #ccc;*/
+/*border: 1px solid #ABA9AA;*/ 
+    /*border-top: 0px none;*/   
+
+}
+#appNav li .navchild{color:#333 ;background:#fffff} 
+#appNav li a:hover {
+    /*background-color: #d2f4ff;*/
+    /*background-color:#d3f3fe;*/
+    text-decoration: none;
+    /*color: #393c4a;*/
+    /*border: solid 1px #d0d0d0; */
+    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important;*/
+    /*background:#d3f3fe;*/
+    cursor: pointer;
+    color: #666;
+    font-size: 12px;
+}
+#appNav li a:active {
+    /*background-color: #f4f4f5;*/
+    text-decoration: none;
+    color: #06c;
+   
+    background: #ededed;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+ul#appNav li a {
+   /* margin-top: 10px;*/
+}
+
+#appNav .lvl a {
+    padding-left: 12px; }
+
+#appNav .current a {
+    background: #666;
+    color: #ededed; }
+
+
+.appNavToggle {
+   /* background: url("../images/Sprite-pcgui/collapse-leftnavbar.png") rgba(223, 242, 248, 0.5) scroll no-repeat;*/
+    background: url("../../images/Sprite-pcgui/unified-new/vzuui-left-pull.png")  scroll no-repeat;
+    background-position: center 30% !important;
+    width: 20px;
+    display: block;
+    position: fixed;
+    float: left;
+    margin: 0px 0 0 162px;
+    height: 100% !important;
+    z-index: 1;}
+
+/* Change the Background color on click event for appNav a */
+.appNavSelected {
+    background-color: transparent;
+    text-decoration: none;
+    color: #393c4a !important;
+    border: solid 1px #d0d0d0;
+    /* fallback/image non-cover color */
+    background-color: #d2f4ff; }
+
+#container {
+    margin: 0 auto;
+    margin-left: 170px;
+    margin-top: 0px;
+    height: 200px;}
+
+/* ---------------------------------------------------------*/
+/*              Order Manager App Panel                     */
+/* ---------------------------------------------------------*/
+.appPanel {
+    /*border: solid 1px #d2d3d4;*/
+    margin: 8px;
+    font-size: 11px;
+    background-color: white;
+    /*border-top-right-radius: 3px;
+    border-top-left-radius: 3px;*/ 
+    margin-right: 2px;
+    }
+.appPanel .body {
+    padding: 6px;
+    /*  overflow: auto;  */
+    background-color: white;
+    min-height: 1%; 
+    display: block;
+ 
+    border-radius: 0px;  
+    background: none repeat scroll 0% 0% #FFF;
+    border: 1px solid #ABA9AA;
+    border-top: 0px none;   
+}
+.appPanel .body p {
+    color: #333;
+    padding: 0px; }
+.appPanel .header {
+    color: #333 !important;
+    background-color: #f4f4f5;
+    padding: 4px;
+    font-weight: normal;
+    font-size: 14px;
+    font-weight: bold; 
+
+    color: #666 !important; padding:7px 10px !important; padding:9px 10px 5px \9 !important ; font-size:12px; font-weight:bold !important; background:#f3f3f3; font-family:Arial, Helvetica, sans-serif;border:1px solid #aba9aa; color:#333 !important; border-radius:0;  margin:5px 0 0;
+ 
+    color:#000000 !important;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f4f4f4 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f4f4f4)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f4f4f4 100%); /* W3C */
+    
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#f4f4f4,GradientType=0)" !important;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#f4f4f4,GradientType=0) !important;
+} 
+
+.appPanel .header .menu a {
+    text-decoration: none;
+    color: white; }
+.appPanel .header:hover {
+    background-color: #d2f4ff; }
+.appPanel .header:hover .menu {
+    display: block; }
+.appPanel .loaded {
+    color: white; }
+.appPanel .menu {
+    text-align: right;
+    display: none;
+    float: right;
+    font-weight: normal;
+    text-decoration: none;
+    color: white;
+    padding-top: 2px; }
+.app-panel-open {
+    background-image:-moz-linear-gradient(rgb(171,188,213) 0%,rgb(244,244,245) 50%,rgb(244,244,245) 100%); 
+    background-image:-webkit-gradient(linear,color-stop(0, rgb(171,188,213)),color-stop(0.5, rgb(244,244,245)),color-stop(1, rgb(244,244,245)));
+    background-image:-webkit-linear-gradient(rgb(171,188,213) 0%,rgb(244,244,245) 50%,rgb(244,244,245) 100%);
+    background-image:-o-linear-gradient(rgb(171,188,213) 0%,rgb(244,244,245) 50%,rgb(244,244,245) 100%);
+    background-image:-ms-linear-gradient(rgb(171,188,213) 0%,rgb(244,244,245) 50%,rgb(244,244,245) 100%);
+    background-image:linear-gradient(rgb(171,188,213) 0%,rgb(244,244,245) 50%,rgb(244,244,245) 100%);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffabbcd5,endColorstr=#fff4f4f5)";
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffabbcd5,endColorstr=#fff4f4f5);
+}
+.appMsg {
+    border: 1px solid #FFCC66;
+    margin: 4px;
+    padding: 6px;
+    background-color: #ffffcc; }
+.appMsg .micon {
+    float: right;
+    color: red;
+    margin-left: 4px;
+    border: 1px solid #ffcc66;
+    padding: 1px; }
+
+.appSubPanel {
+    border: 0px solid #900909;
+    margin: 3px; }
+
+.appSubPanel .aspTitle {
+    margin: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    /* background-color: $appSubPanel-bg-color; */
+    border-width: 0px 0px 1px 0px;
+    border-style: dotted;
+    color: #0066ca;
+    font-weight: bold;
+    display: block;
+    clear: both;
+    cursor: pointer; }
+
+.appSubPanel .aspTitle .menu {
+    text-align: right;
+    display: block;
+    float: right;
+    font-weight: normal;
+    text-decoration: none;
+    color: #47415f;
+    padding-right: 4px; }
+
+.appSubPanel .aspTitle .menu a {
+    text-decoration: none;
+    color: #47415f; }
+
+.appSubPanel .aspBody {
+    padding: 0px;
+    /* overflow-x: scroll;*/
+    background-color: white;
+    margin-top: 4px; }
+
+/*  from pc-custom */
+.openPanel {
+    float: right;
+    height: 15px;
+    width: 15px;
+    margin-left: 0px;
+    margin-top: 4px; 
+    
+    background: url("../../images/accordion1_collapse.png") no-repeat;
+}
+
+.closePanel:parent .header {
+    background: green;
+}
+
+.closePanel {
+    /*background: url("../images/Sprite-pcgui/close-panel.png") no-repeat;*/
+    float: right;
+    height: 15px;
+    width: 15px;
+    margin-left: 0px;
+    margin-top: 4px; 
+    background: url("../../images/accordion1_expand.png") no-repeat;
+}
+
+.iconGear {
+    background-image: url("../../images/Sprite-pcgui/unified-new/icon-setup-nohover.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 20px;
+    position: relative;
+    padding-left: 20px;
+    padding-top: 5px;
+    overflow: hidden; }
+
+.iconGear:hover {
+    background-image: url("../../images/Sprite-pcgui/unified-new/icon-setup-hover.png"); }  
+
+.iconRefresh {
+    background-image: url("../../images/Sprite-pcgui/unified-new/refresh-OMnohover16.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 20px;
+    position: relative;
+    padding-left: 20px;
+    padding-top: 5px;
+    overflow: hidden; }
+
+.iconRefresh:hover {
+    background-image: url("../../images/Sprite-pcgui/unified-new/refresh-OMhover16.png"); }
+
+
+/**************     new accordian style *******************/
+
+.vzuui-accordion-level01{ margin-top:15px; }
+.vzuui-accordion-level01 h3{font-size:12px; font-weight:bold !important;color:#0d6dcf !important;}
+.appPanel .header .ui-accordion .ui-accordion-header{ color: #666 !important; padding:7px 10px !important; font-size:12px; font-weight:bold !important; background:#f3f3f3; font-family:Arial, Helvetica, sans-serif;border:1px solid #aba9aa; color:#333 !important; border-radius:0;  margin:5px 0 0;}
+.appPanel .header .ui-accordion .ui-accordion-header-active{ 
+    color:#000000 !important;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f4f4f4 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f4f4f4)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f4f4f4 100%); /* W3C */
+}
+.vzuui-accordion-level01 .ui-accordion-content{border:1px solid #aba9aa; border-radius:0; padding:8px 10px 10px !important; background:#FFF;}
+.vzuui-accordion-level01.ui-tabs-vertical .ui-tabs-panel{padding:2px !important;}
+.vzuui-accordion-level01.ui-accordion .ui-accordion-header .ui-accordion-header-icon{left:auto !important;right: 0 !important;margin-top: -2px !important;}
+.vzuui-accordion-level01 .ui-state-default .ui-icon{background:url("../images/unified-new/accordion1_collapse.png") no-repeat !important ;}
+.vzuui-accordion-level01 .ui-state-active .ui-icon{ background:url("../images/unified-new/accordion1_expand.png") no-repeat !important;}
+
+
+
+.left-panel-tabs-first{ border:0 !important;}
+.left-panel-tabs, .left-panel-tabs-first ,.left-panel-tabs-first-selected {
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffffff 0%, #f4f4f4 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f4f4f4)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ffffff 0%,#f4f4f4 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ffffff 0%,#f4f4f4 100%); /* W3C */ 
+cursor:pointer;
+    color:#666;
+    height:32px;
+    padding-top:7px;
+    padding-left:7px;
+    font-size:12px;
+    border-top:1px solid #ccc;
+    
+
+}.left-panel-tabs-first,.left-panel-tabs-first-selected{
+        font-size:12px;
+        padding-left:10px;
+    }.left-panel-tabs-first-selected{
+        background-color:#EDEDED;
+         background-image: none;
+      border:1px solid #ccc;
+        color:#333;
+        }
+        
+#container .appPanel .body .appPanel .header{  border:0; border-bottom:1px dashed #333;background:none; cursor:pointer; padding-left:0 !important; padding-right:0 !important;  filter:none !important; }
+#container .appPanel:first-child{margin-top:0;}
+#container .appPanel:first-child .header{margin-top:1px;}
+#container .appPanel .body .appPanel .header .openPanel{ float:left; background:url('../../images/accordion2_expand.png')no-repeat !important; top: -2px; position: relative;}
+#container .appPanel .body .appPanel .header .closePanel{ float:left;background:url('../../images/accordion2_collapse.png')no-repeat !important; margin-top: 2px !important;}
+#container .appPanel .body .appPanel .body{  border:0;}
+.colorBlue{color:#06c}

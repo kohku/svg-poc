@@ -1,0 +1,100 @@
+/*
+    Created on : Tue Aug 25 13:46:19 EDT 2015
+    Author     : V243616
+*/
+div.section_header {
+    font-weight: bold;
+    font-size: 13px;
+}
+/****************************/
+.searchform{ padding:10px;}
+.searchheader{ border:1px solid #d4d4d4;padding: 5px 10px;font-size: 11px;background:transparent linear-gradient(to bottom, #FFF 0px, #F4F4F4 100%) repeat scroll 0px 0px;}
+.searchheader h2{margin:0;}
+.searchbg{margin: 0px; background:#FFF;padding: 6px;border:1px solid #d4d4d4; border-top:0;}
+.searchbg .formdiv{ margin-bottom:0;}
+.searchbg input[type="text"]{margin-left:0;font-weight: normal; }
+.header-pad{ margin:10px 0 3px;}
+.ui-widget-content{color: #000}
+.vzuui-dataGrid,.childtable{font-size: 12px;
+border:1px solid #ccc;width:100%;}
+.tableparent table.vzuui-dataGrid{font-size: 12px;
+border:1px solid #ccc;width:100%;}
+.labelclass{
+display: inline-block;
+height: 29px;
+padding-top: 6px;
+padding-right: 6px;}
+.vzuui-data-div{margin:5px 0px}
+.vzuui-form textarea{padding:10px 5px;}
+.vzuui-form select {
+    height: 32px;
+}h2{color:#000;}
+#searchbtn,#publishbtn,#previewbtn,#previewbtn2{margin-right:10px;}
+.vzuui-accordion-level02  h3{color:#000 !important;}
+.url{display:none;}
+.dataTables_wrapper .dataTables_filter{float:left;margin-bottom:5px;}
+.vzuui-form input[type="search"]{height:auto;}
+.pageinate_input_box{width:30px;}
+.dataTables_length{margin-top:5px;}
+.vzuui-form input, select{margin-right:5px;margin-left:0px;}
+.dataTables_wrapper .vzuui-dataGrid{border :1px solid #ccc !important;}
+table.no-footer.dataTable{border-bottom :1px solid #ccc !important;}
+.paginate_total{margin-right:5px;}
+.paging_extStyle{margin-top:5px;}
+.vzuui-action-select-info{position: absolute;width: 175px;height: auto;padding: 0px;border: 1px solid #AFA7A7;background-color: #FFF;border-radius: 3px;box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);top: 36px;font-weight:normal; display:none; z-index:999; text-align:left;}
+.vzuui-action-bubble-border {border-color: transparent transparent #afa7a7 transparent; border-style: solid; border-width: 15px; height: 0; width: 0; position: absolute; top: -31px; right: 4px;}
+.vzuui-action-bubble-arrow {  border-color: transparent transparent #ffffff transparent; border-style: solid; border-width: 15px; height: 0; width: 0; position: absolute; top: -29px;  right: 4px; }
+.vzuui-action-option{ float:left; width:100%; }
+.vzuui-action-option ul{ padding:0; margin:0;}
+.vzuui-action-option ul li{ background:none ;line-height:18px; list-style:none ;display:block;}
+.vzuui-action-option ul li a{background:none ; border-top:1px solid #CCC; font-size:11px; padding:5px 10px; width:100%; float:left; color:#000; text-decoration:none;}
+.vzuui-action-option ul li:first-child a{ border-top:none; }
+.vzuui-action-option ul li a:hover{ background-color:#f9f9f9;}
+
+
+.vzuui-dataGrid tbody td.details-control {
+    background: transparent url("images/Sprite-pcgui/unified-new/Uni_widget_arrow_nxt_enbl.png") no-repeat scroll center center;
+}
+.vzuui-dataGrid tbody tr.shown td.details-control{background:url("images/Sprite-pcgui/unified-new/Uni_widget_arrow_down.png") center center no-repeat;}
+.publish,.save{background-image: url("images/publish_boom.png");
+padding: 6px 15px;
+background-repeat: no-repeat;
+position: relative;
+cursor: pointer;
+height: 20px;}
+.save{
+background-image: url("images/save_boom.png");
+padding: 2px 15px;
+background-repeat: no-repeat;
+left: 4px;}
+div.toolbar{float:right;padding-top: 7px;}
+.searchform-add,.searchform-add-sql{display:none;}
+.dcsyntax{font-size:11px;}
+.cr-scr-with-api{padding-right:10px;}
+.cr-scr-with-api,.cr-scr-with-sql{text-decoration:underline;}
+.breadcrumbs{padding:5px;}
+@media screen and (min-width: 35.5em) {
+.alignright{text-align:right;}
+
+}
+.urlapi{width:100%;}
+
+.urlapi-container{padding:0px 2%;}
+.key-details,.value-details{display:none;font-weight: bold;
+padding: 5px;}
+.keylabel,.valuelabel{padding-left:5px;}
+.edit-key-value,.delete-key-value,.save-key-value{display:none;}
+.outputformat,.nextbuttons{display:none;}
+.radiocontainerdetaisl{visibility:hidden;}
+.radiocontainer{padding-top: 7px;}
+.radiocont{margin-right: 5px;}
+.dcloud-syntax{font-size:11px;}
+.verisons li{list-style-type:disc;list-style-position:inside;padding:5px;}
+.add_connection{position: relative;top: 2px;}
+.closeconnection{visibility:hidden;padding: 0px 0px 0px 5px;
+font-size: 14px;
+color: #b00;}
+table.dataTable.dtr-inline.collapsed tbody td:first-child::before, table.dataTable.dtr-inline.collapsed tbody th:first-child::before{
+left:43px;
+top:2px;
+}

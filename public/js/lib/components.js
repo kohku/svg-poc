@@ -27,10 +27,22 @@ export class Component extends Observable {
     this.builder.appendComponent(this)
   }
   
+  onClick(callback){
+    if (typeof callback === 'function'){
+      this.view.node.onclick = callback
+    }
+  }
+  
   clone(){
-    var component = Object.create(command.prototype)
-    component.constructor(JSON.parse(JSON.string(commandInfo.options)))
+    var component = Object.create(Object.getPrototypeOf(this))
+    component.constructor(this.builder, JSON.parse(JSON.stringify(this.options)))
     return component
+  }
+}
+
+export class Rack extends Component{
+  constructor(builder, options){
+    super(builder, options)
   }
 }
 

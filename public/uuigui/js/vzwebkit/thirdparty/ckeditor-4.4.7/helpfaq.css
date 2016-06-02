@@ -1,0 +1,315 @@
+/*
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+*/
+
+body
+{
+    /* Font */
+    font-family: Arial,Helvetica,"Myriad Pro",san-serif;
+    font-size: 1em;
+
+    /* Text color */
+    color: #333;
+
+    /* Remove the background color to make it transparent */
+    background-color: #fff;
+
+    margin: 20px;
+}
+
+.cke_editable
+{
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+blockquote
+{
+    font-style: italic;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    padding: 2px 0;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 0;
+}
+
+.cke_contents_ltr blockquote
+{
+    padding-left: 20px;
+    padding-right: 8px;
+    border-left-width: 5px;
+}
+
+.cke_contents_rtl blockquote
+{
+    padding-left: 8px;
+    padding-right: 20px;
+    border-right-width: 5px;
+}
+
+a
+{
+    color: #0782C1;
+}
+
+ol,ul,dl
+{
+    /* IE7: reset rtl list margin. (#7334) */
+    *margin-right: 0px;
+    /* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+    padding: 0 40px;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+hr
+{
+    border: 0px;
+    border-top: 1px solid #ccc;
+}
+
+img.right
+{
+    border: 1px solid #ccc;
+    float: right;
+    margin-left: 15px;
+    padding: 5px;
+}
+
+img.left
+{
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 15px;
+    padding: 5px;
+}
+
+pre
+{
+    white-space: pre-wrap; /* CSS 2.1 */
+    word-wrap: break-word; /* IE7 */
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    -webkit-tab-size: 4;
+    tab-size: 4;
+}
+
+.marker
+{
+    background-color: Yellow;
+}
+
+span[lang]
+{
+    font-style: italic;
+}
+
+figure
+{
+    text-align: center;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.05);
+    padding: 10px;
+    margin: 10px 20px;
+    display: inline-block;
+}
+
+figure > figcaption
+{
+    text-align: center;
+    display: block; /* For IE8 */
+}
+
+a > img {
+    padding: 1px;
+    margin: 1px;
+    border: none;
+    outline: 1px solid #0782C1;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0px;
+    color: #ED1C24;
+    display: inline-block;
+}
+
+ol, ul {
+    list-style: outside none none;
+}
+ol, ul, li {
+    margin: 0px;
+}
+ul, li {
+    padding: 0px;
+}
+
+button, input, select, textarea {
+    font-family: Arial,Helvetica,"Myriad Pro",san-serif;
+    font-size: 1em;
+}
+button {
+    background-color: #ECEAF1;
+    color: #37314F;
+    border: 1px outset #A9A8AB;
+}
+button, input, optgroup, select, textarea {
+    font: inherit;
+    margin: 0px;
+    font-size: 0.8em;
+}
+button {
+    overflow: visible;
+}
+button, select {
+    text-transform: none;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+}
+
+.help_header h1{ font-size:20px; font-weight:normal; margin:0; color:#ed1c24; display:inline-block;}
+.help_content .ulhelpinfo{ margin-top:5px;}
+.help_content .ulhelpinfo .lihelpinfo{ border-bottom:1px solid #bdc5c6; margin-top:25px;padding-bottom:15px;}
+
+.help_content .ulhelpinfo .taskdesc:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll 0px -33px ;
+                                            display:block;position:relative;content: " "; width:40px; height:40px; }
+.help_content .ulhelpinfo .vzknowledge:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -50px -33px ;
+                                               display:block;position:relative;content: " "; width:40px; height:40px; }
+.help_content .ulhelpinfo .vtube:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -150px -33px ;
+                                         display:block;position:relative;content: " "; width:40px; height:40px; }
+.help_content .ulhelpinfo .compTask:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -100px -33px ;
+                                            display:block;position:relative;content: " "; width:40px; height:40px; }
+
+.help_content .ulhelpinfo .lihelpinfo:last-child{ border-bottom:0 !important;}
+.help_content .ulhelpinfo .lihelpinfo h2{ margin-top:0 !important;padding-top: 8px; margin-bottom:15px; color:#707070; font-size:15px;}
+.helpDesc{ padding-left:53px; position: relative;margin-top: -40px;}
+.helpDesc p{ color:#898989; font-size:14px; line-height:20px; padding-bottom:10px; }
+.helpDesc li:before{background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -58px 0px ;display:block;position:absolute;content: " "; width:8px; height:14px; margin-top:6px; }
+.helpDesc li a{padding-left: 15px; line-height:30px; color:#06C;font-size: 14px;}
+
+.helptools{ display:inline-block; float:right;padding-right: 10px;}
+.helptools li{display:inline-block; margin:0 10px;}
+.helpmail       { background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -76px 0px ;display:block;position:relative;content: " "; width:24px; height:24px;}
+.helpmail:hover { background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -110px 0px ;display:block;position:relative;content: " "; width:24px; height:24px;}
+.helpprint      { background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -143px 0px ;display:block;position:relative;content: " "; width:24px; height:24px;}
+.helpprint:hover{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -173px 0px ;display:block;position:relative;content: " "; width:24px; height:24px;}
+.helpnext,.helpprev{ font-size:14px; color:#555555; text-decoration:none !important;width: 45px; height: 24px;float: left; line-height:24px;}
+.helpnext:hover,.helpprev:hover{ color:#06C !important;}
+.helpnext:visited,.helpprev:visited{ color:#555555;}
+.helpsep{font-size:25px; color:#555555; height: 24px; padding:0 !important; margin:0 !important;border-left: 1px solid #000;}
+.helptools li:last-child{ margin-right:0 !important;}
+.help-header a:visited,.helpSectionContent a:visited,.left-panel-ul-first a:visited{color:#06C}
+.headhelp:before{ font-size:14px; background:none !important; padding:0; margin:0;}
+.headhelp a{ padding-left:0 !important;font-size:14px; line-height:18px !important;}
+.help_content{ width:100%; margin-top:10px;}
+.inner-list p{ margin-left:16px;margin-top: 0; margin-bottom:0;}
+.helpbreadcrumb{ display:none;}
+.vzuui-accordion-level01-new.ui-accordion .ui-accordion-header:nth-child(1){ margin-top:0 !important;}
+
+
+h1{ font-size:20px; font-weight:normal; margin:0; color:#ed1c24; display:inline-block;}
+.taskdesc:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll 0px -33px ;
+                  display:inline-block;position:relative;content: " "; width:40px; height:40px;top: 13px; }
+.vzknowledge:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -50px -33px ;
+                     display:inline-block;position:relative;content: " "; width:40px; height:40px;top: 13px; }
+.vtube:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -150px -33px ;
+               display:inline-block;position:relative;content: " "; width:40px; height:40px;top: 13px; }
+.compTask:before{ background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -100px -33px ;
+                  display:inline-block;position:relative;content: " "; width:40px; height:40px;top: 13px; }
+
+.help_content .ulhelpinfo .lihelpinfo:last-child{ border-bottom:0 !important;}
+h2{ margin-top:0 !important;padding-top: 8px; margin-bottom:15px; color:#707070; font-size:15px;}
+.inner-list { list-style: none;}
+.inner-list p{ margin-left:16px;margin-top: 0; margin-bottom:0;}
+.inner-list li:before{background: url('../../../../css/vzwebkit/images/unified-new/help-sprite.png') no-repeat scroll -58px 0px ;display:block;position:absolute;content: " "; width:8px; height:14px; margin-top:6px; }
+.inner-list li a{padding-left: 15px; line-height:30px; color:#06C;font-size: 14px;}
+
+.editseperator {
+    font-size: 18px;
+    padding-left: 2px;
+    border-right: 1px solid #BDC5C6;
+    margin-right: 5px;
+    margin-left: 9px;
+}
+
+.editter, .editdisable {
+    background: url("../../../../css/vzwebkit/images/Edit-Normal.png") no-repeat scroll 0% 0% transparent;
+    width: 25px;
+    height: 15px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    right: -2px;
+}
+.editter:hover{ background:url("../../../../css/vzwebkit/images/Edit-Hover.png") no-repeat;top: 2px;height: 16px;}
+
+#helppagecontent {
+    padding: 17px 15px 0px;
+}
+
+#publishmode, #cancelmode {
+    margin: 0px;
+}
+
+.publish_image {
+    background-image: url("../../../../css/vzwebkit/images/publish.png");
+    background-repeat: no-repeat;
+    padding: 2px 10px 10px 17px;
+}
+.vzuui-btn-gray, .vzuui-btn-gray-active, .vzuui-btn-gray-disabled {
+    background: none repeat scroll 0% 0% #E4E6E6;
+    box-shadow: 0px 1px 1px #FFF inset;
+    border: 1px solid #D1D1CF;
+    color: #797A79;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+.vzuui-btn-red, .vzuui-btn-red-active, .vzuui-btn-red-disabled {
+    background-color: #B00000;
+    box-shadow: 0px 1px 1px #FFF inset;
+    border: 1px solid #890000;
+    color: #FFF;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+.saveedit, .publishmode {
+    display: block;
+    position: relative;
+    content: " ";
+    height: 28px;
+    box-shadow: none;
+    border: 1px solid #890000 !important;
+    padding-top: 6px;
+}
+.closeedit, .cancelmode {
+    display: block;
+    position: relative;
+    content: " ";
+    height: 28px;
+    box-shadow: none;
+    border: 1px solid #D1D1CF !important;
+    padding-top: 6px;
+}
+
+.publishmode, .cancelmode {
+    display: none;
+}
+
+.saveedit, .closeedit {
+    display: inline;
+}
+.publishmode {
+    padding-left: 13px;
+}

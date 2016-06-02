@@ -1,0 +1,292 @@
+/* 
+    Document   : grid
+    Created on : May 12, 2013, 8:13:57 PM
+    Author     : V113274
+    Description:
+        vgrid widget
+*/
+
+.vgrid { 
+    display: block;
+    position:relative;
+    margin: 0px;
+    padding: 0px;
+    line-height: normal;
+    min-height:1%; /* this is to address strange :hover bug in IE http://blog.brianrichards.net/post/6721471926/ie9-hover-bug-workaround */
+    /* setting to 1% cause yuicompressor will change 0% to 0 :-( */
+}
+
+.vgrid-head {
+    margin: 0px;
+    padding: 0px;
+    white-space: nowrap;
+    list-style-type: none;
+    height:16px;
+    word-spacing: -3px;
+}
+
+.vgrid-head .vgrid-column {
+    background-color: #ddd;
+}
+
+.vgrid-column {
+    display: inline-block;
+    width:150px;
+    height:16px;
+    overflow:hidden;
+    /*    border-bottom: 1px inset #ddd;
+        border-right: 1px inset #ddd;
+        border-top:1px inset #ddd;*/
+    margin: 0px;
+    padding: 0px;
+    border-right: 1px solid #ccc;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    word-spacing: 0px;
+    position:relative;
+    background-color:#FFF;
+}
+
+.vgrid-head .vgrid-column {
+    text-align: center;
+    font-weight: bold;
+}
+
+.vgrid-head .vgrid-column .ui-resizable-e {
+    width:10px;
+}
+
+.vgrid-head .vgrid-column .filter-div {
+    position: absolute;
+    height: 100%;
+    width: 11px;
+    background-color: #eaeaea;
+    border-left: 1px solid #ccc;
+    top: 0px;
+    right: 0px;
+}
+
+.vgrid-head .vgrid-column .filter-div .filter-down-arrow {
+    position: absolute;
+    background-color: transparent;
+    top: 50%;
+    margin-top:-4px;
+    right: 0px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #898989;
+}
+
+.vgrid-head .vgrid-column[data-filter-value] .filter-div .filter-down-arrow {
+    border-top: 10px solid #00a8e1;
+}
+
+.vgrid-left-gutter {
+    width:20px;
+    height:16px;
+    margin:0px;
+    padding:0px;
+    display: inline-block;
+    background-color: #ddd;
+}
+
+.vgrid-head .vgrid-left-gutter {
+    background-image: url('gear.png');
+    background-repeat: no-repeat;
+    background-position-x: 2px;
+    background-position-y: 1px;
+}
+
+.vgrid-body {
+}
+
+.vgrid-row {
+    margin: 0px;
+    padding: 0px;
+    white-space: nowrap;    
+    /*border-bottom: 1px solid #ccc;*/
+    height:16px;
+    word-spacing: -3px;
+    position:relative;
+}
+.vgrid-row:nth-child(even) > .vgrid-column{
+    background-color:#F2F2F2;
+}
+.vgrid-row:hover > .vgrid-column {
+    background-color:#d2f4ff;
+}
+.vgrid-row.vgrid-selected-row > .vgrid-column {
+    background-color:#d2f4ff;
+}
+.vgrid-row-body {
+    display:none;
+    /*border-bottom: 1px solid #ccc;*/
+    margin:0px;
+    word-spacing: normal;
+}
+
+.vgrid-row-body span{
+    white-space:normal;/*so drawer description will wrap*/
+}
+
+
+.vgrid-menu {
+    display:none;
+    position: absolute;
+    top: 8px;
+    background-color: #fff;
+    padding: 2px;
+    border: 2px solid #999;
+    left: 9px;
+    list-style: none;
+    line-height: 18px;
+    z-index: 1000;
+}
+
+.vgrid-menu .icon-remove {
+    position:absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.vgrid-menu li.vgrid-settings {
+    font-weight: bold;
+    border-bottom:1px solid black;
+}
+
+.vgrid-menu li.vgrid-columns {
+    font-weight: bold;    
+}
+
+.vgrid-menu .vgrid-menu-column-list {
+    font-weight:normal;
+
+}
+
+.vgrid-menu .vgrid-menu-column-list .vgrid-column-checkbox {
+    margin-right:2px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.vgrid-head .vgrid-column-sort-link {
+    color:#37314f;
+}
+.vgrid-row-edit .vgrid-column {
+    background-color:#F0F000;
+}
+/*.vgrid-row-edit:hover {
+    background-color:#F4F400;
+}*/
+.vgrid-row-edit:hover .vgrid-column {
+    background-color:#F4F400;
+}
+.vgrid-row-edited .vgrid-column {
+    background-color:#F0F090;
+}
+.vgrid-row-edited:hover .vgrid-column {
+    background-color:#F4F494;
+}
+
+
+.vgrid-head .filter-menu {
+    position: absolute;
+    background-color: #eaeaea;
+    z-index: 999;
+    border: 1px solid #eee;    
+    moz-box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    -ms-box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+}
+
+.vgrid-head .filter-menu .action-FILTERSUBMIT {
+    position:absolute;
+    margin:auto;
+    width:50px;
+    left:0px;
+    right:60px;
+    bottom:2px;
+}
+
+.vgrid-head .filter-menu .action-FILTERRESET {
+    position:absolute;
+    margin:auto;
+    width:50px;
+    left:60px;
+    right:0px;
+    bottom:2px;
+}
+
+.vgrid-head .filter-menu ul {
+    margin:5px;
+    padding:0px;
+}
+
+.vgrid-head .filter-menu ul.stringlist {
+    height: 160px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.vgrid-head .filter-menu ul li {
+    display:block;
+
+}
+
+.vgrid-head .filter-menu ul li input {
+    position:static;
+
+}
+
+.vgrid-head .filter-menu ul li div {
+    display: inline;
+    margin-left: 5px;
+}
+
+.vgrid-head .filter-menu input {
+    right: 5px;
+    position: absolute;
+    left: 5px;
+    top:5px;
+}
+
+.vgrid-selector {
+    display: inline-block;
+    width:14px;
+    height:100%;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.vgrid-selector input[type=checkbox]{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin-top: auto;
+    margin-bottom: auto;    
+}
+.vgrid-head .vgrid-selector {
+    background-color: #ddd;
+}
+.vgrid-row-menu {
+    list-style: none;
+    border: 1px solid #B1B1B1;
+    display: inline-block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 1000;
+    background-color: #fff;
+    padding:0px;
+    top: 32px;
+    left: 11px;
+    display:none;
+}
+.vgrid-row-menu li {
+    background-color: #FFF;
+    padding: 2px;
+    padding-left: 5px;
+}
+.vgrid-row-menu li:nth-child(even) {
+    background-color: #F2F2F2;
+}

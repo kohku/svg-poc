@@ -1,0 +1,133 @@
+@CHARSET "ISO-8859-1";
+
+
+.container-fluid {
+	font-weight: bold !important;
+}
+
+.vzuui-grid-col-1 searchheader, h2 {
+	padding: 0px !important;
+	position: relative;
+	margin-left: 600px !important;
+}
+
+#vzuui-footer{
+	position:absolute;
+	margin-top:50px;
+}
+
+.selected {
+	background-color:  lightblue;
+	}
+.tabbable {
+	margin: 10px;
+	height: 500px;
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+
+.nav-tabs {
+	margin: 5px;
+	background-color: lightgrey;
+	border-radius: 3px;
+}
+
+html, body {
+	background: transparent;
+}
+
+td {
+	border: 1px #DDD solid;
+	padding: 5px;
+	cursor: pointer;
+}
+
+#hl {
+	border: 0;
+	height: 1px;
+	width:930px;
+	margin-left:85px;
+	margin-top:-11px;
+	background: #333;
+	box-shadow: 1px 0px 2px grey;
+	
+}
+
+#hl1 {
+	border: 0;
+	height: 1px;
+	margin-left:140px;
+	width:875px;
+	margin-top:-11px;
+	background: #333;
+	box-shadow: 1px 0px 2px grey;
+	
+}
+
+label {
+	display: inline-block;
+	width: 200px;
+	margin-right: 10px;
+	text-align: right;
+}
+
+/* #tab1{ */
+/* width:100%; */
+/* } */
+input {
+	margin-right: 5px;
+}
+
+fieldset {
+	border: none !important;
+	width: 500px !important;
+	margin: 0px auto;
+	margin-left:20px;
+}
+
+#tab1 {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	column-count: 2;
+}
+
+#equipAccordian {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	-moz-column-count: 2; /* Firefox */
+	column-count: 2;
+}
+
+#siteAccordian {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	-moz-column-count: 2; /* Firefox */
+	column-count: 2;
+}
+
+.vzuui-dataGrid .vzuui-prettycheckbox {
+	margin: 0;
+	top: auto;
+}
+
+.vzuui-dataGrid input[type="text"] {
+	width: 100%;
+}
+
+.dataTables_filter {
+	display: none;
+}
+
+
+.vzuui-dataGrid tbody td.details-control {
+	background:
+		url("uuigui/css/vzwebkit/images/Sprite-pcgui/unified-new/Uni_widget_arrow_nxt_enbl.png")
+		center center no-repeat;
+}
+
+.vzuui-dataGrid tbody tr.shown td.details-control {
+	background:
+		url("uuigui/css/vzwebkit/images/Sprite-pcgui/unified-new/Uni_widget_arrow_down.png")
+		center center no-repeat;
+}
+.vzuui-form input, select {
+    margin-left: 0px;
+    
+}

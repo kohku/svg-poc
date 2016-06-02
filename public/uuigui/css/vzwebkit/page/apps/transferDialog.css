@@ -1,0 +1,202 @@
+label {
+    font-weight: bold;
+}
+
+.ui-multiselect-menu .ui-state-hover{
+    color: #890000 !important;
+}
+
+.ui-icon-triangle-2-n-s {
+	background:url("../images/ManageView_Sprite08092013_2.png") top left no-repeat !important;
+    background-position: -48px -261px !important;
+}
+
+.selectCls{
+	width: 250px;
+}
+
+
+.ui-multiselect-menu{
+	
+	float: left;
+	border-color:rgb(179,179,179) !important;
+	border-width:1px !important;
+	/* Firefox v1.0+ */
+	-moz-border-radius:2px !important;
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-border-radius:2px !important;
+	/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ ,
+	Opera v10.5+ and by IE v9.0+ */
+	border-radius:2px !important;
+	border-style:solid !important;
+	/* Firefox v3.5+ */
+	-moz-box-shadow:2px 2px 2px rgba(0,0,0,0.2) !important;
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow:2px 2px 2px rgba(0,0,0,0.2) !important;
+	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+,
+	IE v10+ and by Opera v10.5+ */
+	box-shadow:2px 2px 2px rgba(0,0,0,0.2) !important;
+	-ms-filter:"progid:DXImageTransform.Microsoft.dropshadow(OX=2,OY=2,Color=#33000000,Positive=true)" !important;
+	filter:progid:DXImageTransform.Microsoft.dropshadow(X=2,Y=2,Color=#33000000,Positive=true) !important;
+}
+
+#transfercontainer {
+    margin:5px;
+    width:100%;    
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+
+#workpool-search {    
+   left: -25px;
+   margin-top: -10px;
+   position: relative;
+   top: 10px;
+}
+.ui-icon-closethick{	
+	background-image: url("../../images/npc_sprite_standard_10072013.png") !important;
+	background-position: -259px -183px !important;		
+}
+.ui-multiselect-header {
+	background-image: none !important;
+	background-color:#890000 !important;
+}
+.ui-state-hover{
+	color: #AC0000 !important;
+	 background-image: none !important;
+	background-color : #d2f4ff !important;
+}
+
+.divHeaderTable
+{
+            width: 80%;
+            padding-bottom:5px;
+            display:block;
+}
+
+.divHeaderRow
+{
+            width: 80%; /* add extra that you want to for header column */
+            display:block;
+            height:105px;
+}
+.divHeaderColumn
+{
+            float: left;
+            width: 33%;
+            display:block;
+}
+.divTable
+{
+            width: 80%;
+            display:block;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-right:10px;
+            padding-left:10px; 
+}
+.divRow
+{
+         border:thick;
+         border-color:red;
+         padding-top:10px;
+         width: 100% !important; 
+         display:block;        
+         padding-bottom:15px;
+         height: 25px;
+}
+.divColumn
+{
+         border:medium;   
+         float: left;      
+         width:100% !important;      
+         display:block;
+}
+
+#remarks, #ORDER_SHORT_REMINDER {
+    height: 220px !important;
+    width: 100% !important;
+}
+
+#transfer-search{
+    margin: 4px 5px 0px 0px;
+    padding-left: 5px;
+    padding-top:3px;
+    border-radius: 3px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0px 2px 2px 0px #CDCDCD inset;
+    height: 27px;
+    width: 200px;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold !important;
+}
+
+#vgrid-wrapper{
+    border: 1px solid #cccccc;
+    border: 1px solid #CCC;
+    margin-top: 10px;
+    height: 158px;
+    overflow:scroll;/*temporaray*/
+   /* margin-right: -12px;
+    position: relative;
+    left: -6px;*/
+}
+
+/*
+#vgrid_container > .vgrid-head {
+    position:relative;
+}
+
+#vgrid_container {
+    top:0px;
+    
+    width:100%;
+    height: auto;
+   
+    overflow:hidden;
+}
+#vgrid_container > .vgrid-body {
+    
+    overflow:auto;
+}
+
+#vgrid_container > .vgrid-body {
+    display:none;
+}
+#vgrid_container > .vgrid-body > .vgrid-row > .vgrid-row-body {
+    display:none;
+    
+}
+
+#vgrid_container > .vgrid-body > .vgrid-row > .vgrid-column, #container > .vgrid-head > .vgrid-column {
+    text-align: left;
+}
+*/
+
+
+#remarks-wrapper
+{
+        margin-top:0px;
+         border:medium;   
+         float: left;      
+         width:100% !important;      
+         display:block;
+}
+
+
+#remarks {
+    height: 100px !important;
+    width: 100% !important;   
+    padding: 0px 3px;
+    color: #000;
+    background-color: #FFF;
+    border-radius: 0px;
+    border: 1px solid #AFA7A7;
+    box-shadow: 0px 2px 2px 0px #CDCDCD inset;
+}
+
+.dialog-label{
+    font-weight: bold;
+}

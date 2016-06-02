@@ -1,0 +1,955 @@
+
+html, body
+{
+    height: 100%;
+}
+
+
+/*
+.card-arrow-enabledl{ width:24px; height:39px; background-position:-10px -668px; }
+.card-arrow-disabledl{ width:24px; height:39px; background-position:-10px -717px; }
+.card-arrow-enabledr{ width:24px; height:39px; background-position:-10px -766px; }
+.card-arrow-disabledr{ width:24px; height:39px; background-position:-10px -815px; }
+*/
+/*
+background-image: -webkit-gradient(
+  linear, left top, left bottom, from(rgba(50,50,50,0.8)),
+  to(rgba(80,80,80,0.2)), color-stop(.5,#333333)
+);
+
+
+
+
+background-image: -moz-linear-gradient(
+  rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 95%
+);
+
+
+
+Apparently you can even do this in IE, using an odd "extended hex" syntax. The first pair (in the example 55) refers to the level of opacity:
+
+
+filter: progid:DXImageTransform.Microsoft.gradient(
+  startColorstr=#550000FF, endColorstr=#550000FF
+);
+
+
+-ms-filter: progid:DXImageTransform.Microsoft.gradient(
+  startColorstr=#550000FF, endColorstr=#550000FF
+);
+*/
+
+#vzuui-nav-icon {
+    cursor: pointer;
+}
+
+.vzuui-nav-side-arrow-prev, .vzuui-nav-side-arrow-next {
+    background-position: center;
+    width:20px;
+    height:80px;
+}
+
+.vzuui-nav-side-arrow-next{
+    background: transparent url("../images/leftmenu-expand-enable.png") no-repeat;
+}
+
+.vzuui-nav-side-arrow-next:hover {
+    background: transparent url("../images/leftmenu-expand-hover.png") no-repeat; }
+
+.vzuui-nav-side-arrow-prev{
+    background: transparent url("../images/leftmenu-collapse-enable.png") no-repeat;
+    margin-left: 3px; }
+
+.vzuui-nav-side-arrow-prev:hover{
+    background: transparent url("../images/leftmenu-collapse-hover.png") no-repeat; }
+
+.vzuui-nav-arrow-prev, .vzuui-nav-arrow-next, .vzuui-nav-arrow-prev-disable, .vzuui-nav-arrow-next-disable {
+    background-repeat: no-repeat;
+    width:24px; 
+    height:39px;
+}
+
+.vzuui-nav-arrow-next
+{
+    background-image: url('../images/Sprite-pcgui/unified-new/sprite-vzuui-05022014-v3.png');
+    background-position:-10px -388px;
+}
+
+.vzuui-nav-arrow-prev
+{
+    background-image: url('../images/Sprite-pcgui/unified-new/sprite-vzuui-05022014-v3.png');
+    background-position:-10px -339px;
+}
+
+.vzuui-nav-arrow-next:hover, .vzuui-nav-arrow-prev:hover {
+    cursor: pointer;
+}
+
+.vzuui-nav-arrow-next-disable
+{
+    /*background-image: url('../images/arrow-next_disable.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 20px;
+    height:20px;
+    overflow: hidden;
+    */
+    background-image: url('../images/Sprite-pcgui/unified-new/sprite-vzuui-05022014-v3.png');
+    background-position:-44px -388px;
+}
+
+.vzuui-nav-arrow-prev-disable
+{
+    /* background-image: url('../images/arrow-previous_disable.png');
+     background-repeat: no-repeat;
+     background-position: center center;
+     width: 20px;
+     height:20px;
+     overflow: hidden;*/
+    background-image: url('../images/Sprite-pcgui/unified-new/sprite-vzuui-05022014-v3.png');
+    background-position:-44px -339px;
+}
+
+.vzuui-drag-section
+{
+    position:absolute;
+    z-index:1030;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    padding:10px;
+    padding-left:0px;
+    padding-top:0px;
+    /*background:green;*/
+}
+
+
+.vzuui-widget-app
+{  
+    position:absolute;
+    z-index:1020;
+    top:0px;
+    padding:10px;
+    padding-left:30px;
+    padding-top:328px;
+    padding-bottom:10px;/*need this to elimate v scroll bar and show shadow */
+    height:100%;
+    width:100%;
+    display:none;
+    border:1px solid #666666;
+}
+
+.vzuui-widget-app-content
+{
+    /* text-align:center;*/
+    /* padding-top:100px;*/
+    /* background:red;*/
+    width:100%;
+    height:98%;
+    border-color: #CDCDCD !important;
+    border-top: 1px;
+    border-right: 1px;
+    border-left: 1px;
+    border-bottom: 1px;
+    border-style: solid;
+    -moz-box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=3,Color=#1a000000,Positive=true)";
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=3,Color=#1a000000,Positive=true); 
+    position:relative;
+}
+
+#vzuui-nav
+{
+    position:absolute;
+    z-index:1035;
+    width:20px;
+    padding-top:70px;
+    /*background:blue;*/
+    height:100%
+}
+
+.vzuui-nav-filllayer-um
+{
+    /*background:orange;*/
+    height:100%;
+    position: fixed;
+    top: 5px;
+}
+
+#vzuui-nav-content
+{
+    display:none;
+    z-index:5000 !important;
+    width:180px;
+    height:100%;
+    position:absolute;
+    top:0px;
+    padding-top: 82px;
+    border: 1px solid #bbb;
+    -moz-box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
+    background: #FFF;
+
+}
+
+.vzuui-nav-arrow-section-um
+{
+    width:20px;
+    height:100%;
+    position:absolute;
+    top:0px;
+    padding-top:110px;
+    z-index:90;
+}
+
+.vzuui-nav-arrow-section-filllayer-um
+{
+    width:20px;
+    background:transparent;
+    height:100%;    
+}
+
+.vzuui-nav-arrow-vfill-um
+{
+    height:40%;   
+}    
+
+#vzuui-ribbon-left-icon
+{
+    position:absolute;
+    top:200px;
+    left:23px;
+    z-index:2000;
+    display:none;
+}
+
+#vzuui-ribbon-right-icon
+{
+    position:absolute;
+    top:200px;
+    right:6px;
+    z-index:2000;
+    display:none;
+}
+
+.vzuui-app-icon 
+{
+    position: absolute;
+    background: white;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+
+}
+
+
+
+
+.vzuui-app-icon-shift{
+    margin-top:2px;
+    margin-left:2px;
+}
+
+.vzuui-app-container {  
+    position:absolute;
+    top: 70px; 
+    left:30px;
+    height:100%;
+    width:100%;
+}
+
+#vzuui-app-box {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; 
+}
+
+.vzuui-app-content {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    border-top: 33px solid transparent;
+    box-sizing: border-box; 
+    display:block;
+
+}
+
+.vzuui-flip-content{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    border-top: 33px solid transparent;
+    box-sizing: border-box; 
+    display:none;
+
+}
+
+.vzuui-app-icon-title-bar {
+    background-color: #f4f4f5;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    padding: auto 10px auto 10px !important;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    margin-left: -1px;
+    /* REQUIRED */
+    margin-right: -1px;
+    /* REQUIRED */
+    color: #37314f;
+    line-height: 35px;
+    font-weight: bold;
+    height: 33px;
+    cursor: move;
+    border: 1px solid #D0D0D0; }
+
+.vzuui-app-icon-title-bar-l5 
+{
+    position:absolute;
+    background-color: #f4f4f5;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: auto 10px auto 10px !important;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    margin-left: -1px;
+    /* REQUIRED */
+    margin-right: -1px;
+    /* REQUIRED */
+    color: #37314f;
+    line-height: 35px;
+    font-weight: bold;
+    height: 33px;
+    /*cursor: move;*/
+    border: 1px solid #D0D0D0; 
+    border-top-width:0px;
+    padding-left:10px;/*above is not working*/
+}
+
+
+.vzuui-title-bar-shift{
+    margin-right:0px;
+    margin-left:0px;
+}
+
+.vzuui-app-widget-link 
+{
+    /* margin: 0px -20px 20px 20px;*/
+    border: 1px solid #cdcdcd; 
+    float: left;
+    width: 250px;
+    height: 231px;
+    border-top: 0px;
+    -moz-box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=3,Color=#1a000000,Positive=true)";
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=3,Color=#1a000000,Positive=true); 
+}
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .name {
+    margin-left: 10px; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 53px;
+}
+
+
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .maximize {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-launch-nohover16.png");
+    /*background-position: center 8px;*/
+    right: 18px;
+    top: 8px;
+    position: absolute; 
+}
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .maximize:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-launch-hover16.png");
+}
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .help {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-help-nohover16.png");
+    background-position: center 8px;
+    right: 44px;
+    top: 0px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .help:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-help-hover16.png"); }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .idea {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-ideas-nohover16.png");
+    background-position: center 8px;
+    right: 65px;
+    top: 0px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .idea:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-ideas-hover16.png"); }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar a.delete {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background: url("../images/Sprite-pcgui/unified-new/sprite-icon-delete-nohover16.png") no-repeat;
+    /* background-position: 8px 2px;*/
+    right: 2px;
+    top: 8px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .delete:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-delete-hover16.png"); }
+
+.vzuui-widget-app div.nav-arrow-level-5 {
+    padding-left: 47%;
+    padding-bottom: 5px;
+}
+
+.vzuui-widget-app div.nav-arrow-level-5 a.nav-arrow-level-5-link {
+    width: 40px;
+    height: 8px;
+    display: block;
+}
+
+.vzuui-widget-app div.nav-arrow-level-5 a.up{
+    background: url("../images/Sprite-pcgui/unified-new/sprite-icon-widget-cards-collapse.png") no-repeat;
+}
+
+.vzuui-widget-app div.nav-arrow-level-5 a.down {
+    background: url("../images/Sprite-pcgui/unified-new/sprite-icon-widget-cards-expand.png") no-repeat;
+}
+
+
+.vzuui-app-icon .vzuui-app-icon-title-bar a.flip {
+    width: 17px;
+    height: 17px;
+    display: block;
+    background: url("../images/Sprite-pcgui/unified-new/sprite-icon-flip-nohover.png") no-repeat;
+
+    right: 78px;
+    top: 6px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .flip:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-flip-hover.png"); }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar a.level2 {
+    width: 16px;
+    height: 13px;
+    display: block;
+    background: url("../images/Sprite-pcgui/unified-new/sprite-icon-lvl2-nohover.png") no-repeat;
+    right: 37px;
+    top: 9px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon .vzuui-app-icon-title-bar .level2:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-lvl2-hover.png"); }
+
+/******************************************/
+
+.vzuui-app-icon .vzuui-app-icon-title-bar-l5 .name {
+    margin-left: 10px; }
+
+.vzuui-app-icon-title-bar-l5 .maximize {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-lvl2-nohover.png");
+    background-position: center 8px;
+    right: 20px;
+    top: 0px;
+    position: absolute; }
+
+.vzuui-app-icon-title-bar-l5 .maximize:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-lvl2-hover.png"); }
+
+.vzuui-app-icon-title-bar-l5 .help {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-help-nohover16.png");
+    background-position: center 8px;
+    right: 44px;
+    top: 0px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon-title-bar-l5 .help:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-help-hover16.png"); }
+
+.vzuui-app-icon-title-bar-l5 .idea {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-ideas-nohover16.png");
+    background-position: center 8px;
+    right: 65px;
+    top: 0px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon-title-bar-l5 .idea:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-ideas-hover16.png"); }
+
+.vzuui-app-icon-title-bar-l5 a.delete {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: url("../images/Sprite-pcgui/unified-new/sprite-icon-delete-nohover16.png") no-repeat;
+    /*background-position: 8px 2px;*/
+    right: 0px;
+    top: 8px;
+    position: absolute;
+    z-index: 90; }
+
+.vzuui-app-icon-title-bar-l5 .delete:hover {
+    background-image: url("../images/Sprite-pcgui/unified-new/sprite-icon-delete-nohover16.png"); }
+
+/*
+.vzuui-refresh-omnohover16{ width:16px; height:16px; background-position:-10px -1442px; }
+.vzuui-refresh-omhover16{ width:16px; height:16px; background-position:-10px -1468px; }
+*/
+.vzuui-app-icon-title-bar-l5 a.refresh {
+
+    display: block;
+
+    background:url("../images/Sprite-pcgui/unified-new/sprite-icon-refresh-omnohover16.png") no-repeat;
+
+    right: 24px;
+    top: 8px;
+    position: absolute;
+    z-index: 90; 
+    width:16px; height:16px; 
+}
+
+.vzuui-app-icon-title-bar-l5 .refresh:hover {
+
+    background:url("../images/Sprite-pcgui/unified-new/sprite-icon-refresh-omhover16.png") no-repeat;
+    width:16px; height:16px; 
+}
+
+
+/*********************************************/
+
+.vzuui-app-placement-box 
+{ 
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+    margin: 5px;
+    z-index:1000;
+    border:2px dashed #666666;
+}
+
+.vzuui-header-wrapper
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:1040;
+    width:100%;
+}
+
+.vzuui-app-iframe {
+    border: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.vzuui-app-level5-iframe {
+    border: 0px;
+    width: 100%;
+    height: 100%;
+    border-top-width: 33px;
+    border-top-style:solid;
+    border-top-color: transparent;
+}
+
+.vzuui-app-content .vzuui-progress-image {
+    margin: 0 auto;
+    width: 32px;
+    display: block; }
+
+/***** App Menu Styles ******/
+.vzuui-nav-app-box {
+    height: auto !important;
+    max-height: 72%;
+    width:100%; }
+
+#vzuui-accordion-wrapper {
+    height: 100%;
+    display: block;
+    background: #FFF !important;
+}
+
+.ui-accordion-header-active {
+    -moz-box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
+}
+
+/*.ui-accordion-header-active ~ .ui-accordion-header:first-child {
+    -moz-box-shadow: 0px -3px 4px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px -3px 4px rgba(0,0,0,0.2);
+    box-shadow: 0px -3px 4px rgba(0,0,0,0.2);
+}*/
+
+h3.group-name {margin-top: -1px !important;}
+
+h3.group-name:first-of-type {
+    margin-top: 0px !important;
+}
+
+.ui-accordion-header {
+    background: #cccccc;
+    border: 1px solid #bbb;
+    border-left: none;
+    border-right: none;
+    padding-left: 10px !important;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0 !important;
+    overflow-y: auto !important;
+}
+
+.vzuui-nav-app-content {
+    border-top: 1px solid #bbb;
+    margin-left: -2px;
+    padding: 10px 10px 10px 5px;
+    height: 35px;
+    color: #333333;
+    font-size: 11px;
+    font-weight: bolder;
+    overflow: hidden;}
+
+.vzuui-nav-app-content div:first-of-type {width: 120px;}
+
+.vzuui-nav-app-content div:first-of-type:hover {
+    font-weight: bolder;
+}
+
+.vzuui-nav-app-content div:first-of-type a {
+    color: #333;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;}
+
+.vzuui-nav-app-content div:first-of-type a:hover {color: #333;}
+
+.vzuui-nav-app-icon:first-of-type .vzuui-nav-app-content {
+    border: none;
+}
+
+.vzuui-nav-app-content div {display: block;}
+
+/* move these ui styles to js-style */
+
+.ui-state-default, .ui-state-active {
+    color: #333 !important;
+}
+
+/* update this sprite with newer version */
+.ui-state-default .ui-accordion-header-icon {
+    background: url("../images/Sprite-pcgui/unified-new/sprite-vzuui-05022014-v3.png") no-repeat!important;
+    background-position: -70px -720px!important;
+}
+
+
+/* update this sprite with newer version */
+.ui-state-active .ui-accordion-header-icon {
+    background: url("../images/Sprite-pcgui/unified-new/sprite-vzuui-05022014-v3.png") no-repeat!important;
+    background-position: -70px -750px!important;
+}
+
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+    width: 10px;
+    height: 7px;
+    float: right!important;
+    position: relative!important;
+    margin-top: 4px!important;
+    margin-right: 10px!important;
+}
+
+.ui-dialog {
+    z-index: 5001 !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    border: 1px solid #890000 !important;
+    text-shadow: 0px 0px 0px #fff !important;
+    background: #b00000 !important;
+    color: #fff !important;
+    height:30px !important;
+    border: 1px solid rgb(175,167,167) !important;
+    -moz-border-radius:3px !important;
+    -webkit-border-radius:3px !important;
+    border-radius:3px !important;
+    font-weight: bold !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:hover {
+    box-shadow: inset 0px 1px 1px white !important;
+    background-image:-moz-linear-gradient(50% 0% -90deg,rgb(176,0,0) 0%,rgb(137,0,0) 100%) !important; 
+    background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(176,0,0)),color-stop(1, rgb(137,0,0))) !important;
+    background-image:-webkit-linear-gradient(-90deg,rgb(176,0,0) 0%,rgb(137,0,0) 100%) !important;
+    background-image:-o-linear-gradient(-90deg,rgb(176,0,0) 0%,rgb(137,0,0) 100%) !important;
+    background-image:-ms-linear-gradient(-90deg,rgb(176,0,0) 0%,rgb(137,0,0) 100%) !important;
+    background-image:linear-gradient(180deg,rgb(176,0,0) 0%,rgb(137,0,0) 100%) !important;
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#b00000,endColorstr=#890000,GradientType=0)" !important;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b00000,endColorstr=#890000,GradientType=0) !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:active {
+    box-shadow: none !important;
+    background-image:-moz-linear-gradient(rgb(137,0,0) 0%,rgb(176,0,0) 100%) !important; 
+    background-image:-webkit-gradient(linear,color-stop(0, rgb(137,0,0)),color-stop(1, rgb(176,0,0))) !important;
+    background-image:-webkit-linear-gradient(rgb(137,0,0) 0%,rgb(176,0,0) 100%) !important;
+    background-image:-o-linear-gradient(rgb(137,0,0) 0%,rgb(176,0,0) 100%) !important;
+    background-image:-ms-linear-gradient(rgb(137,0,0) 0%,rgb(176,0,0) 100%) !important;
+    background-image:linear-gradient(rgb(137,0,0) 0%,rgb(176,0,0) 100%) !important;
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#890000,endColorstr=#b00000)" !important;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#890000,endColorstr=#b00000) !important;
+}
+
+/* end */
+
+.ui-dialog-buttonpane button {
+    background: #890000 !important;
+}
+/* 
+.Help~.vzuui-nav-app-box .vzuui-nav-app-content span.vzuui-add-widget {
+    display: none;
+}
+
+.Help~.vzuui-nav-app-box .vzuui-nav-app-content div {
+    width: auto;
+    text-overflow: none;
+    white-space: normal;
+}
+
+.Tools~.vzuui-nav-app-box .vzuui-nav-app-content span.vzuui-add-widget {
+    display: inline-block;
+} */
+
+.vzuui-add-widget-overlay {
+    display: none;
+    position: absolute;
+    height: 25px;
+    width: 50px;
+    right: 0px;
+    margin-top: -18px;
+    z-index: 1001;}
+
+.vzuui-add-widget {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin-top: -16px;
+    margin-right: -4px;
+    background: url("../images/Sprite-pcgui/unified-new/sprite-vzuui-05022014-v3.png") no-repeat;
+}
+
+.vzuui-add-widget-multi-instance {
+    background-position:-10px -690px;
+    cursor: pointer;
+}
+
+.vzuui-add-widget-disabled {
+    background-position:-40px -690px;
+}
+
+.vzuui-add-widget-enabled {
+    background-position:-40px -720px;
+    cursor: pointer;
+}
+
+.vzuui-add-widget-enabled:hover {
+    cursor: pointer;
+}
+
+
+/* corrects for flip content display in widgets */
+
+.vzuui-content-box {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -o-box-sizing: content-box;                 
+}
+
+.vzuui-border-box{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box; 
+}
+
+.vzuui-drag-mask{
+
+    /*background-color: #f9f9f9;*/
+    /* height: 100%;
+     width:100%;*/
+    z-index: 100;
+    /*position: relative;*/
+    /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";	
+    filter: alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;*/
+    display:none;
+    top: 70px;
+
+    width: 20px;
+    position: absolute;
+    right: 0px;
+    margin-top: 5px;
+    height: 247px;
+
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#00f9f9F9', endColorstr='#fff9f9f9');
+
+    background-image: -webkit-gradient(
+        linear, right top, left top, from(rgba(249, 249, 249, 0.0)),
+        to(rgba(249, 249, 249, 1.0))
+        );
+
+    /* mozilla example - FF3.6+ */
+    background-image: -moz-linear-gradient(
+        right center,
+        rgba(249, 249, 249, 0.9) 3%, rgba(249, 249, 249, 0.3) 95%
+        );
+
+    /* background-image: -moz-linear-gradient(right center , rgba(255, 255, 255, 0.9) 5%, rgba(255, 255, 255, 0.5) 25%);*/
+
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(
+        gradientType=1, startColor=0, endColoStr=#F9F9F9
+        );
+
+
+}
+
+.vzuui-level-one-mask{
+    position:absolute;
+    z-index:10000;
+    display:none;
+    width:100%;
+    height:100%;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#00ffffFF', endColorstr='#ffffffff');
+
+    background-image: -webkit-gradient(
+        linear, right top, left top, from(rgba(255, 255, 255, 0.0)),
+        to(rgba(255, 255, 255, 1.0))
+        );
+
+    /* mozilla example - FF3.6+ */
+    /*background-image: -moz-linear-gradient(
+      right center,
+      rgba(255, 255, 255, 0.9) 20%, rgba(255, 255, 255, 0.3) 95%
+    );*/
+
+    background-image: -moz-linear-gradient(right center , rgba(255, 255, 255, 0.9) 5%, rgba(255, 255, 255, 0.5) 25%);
+
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(
+        gradientType=1, startColor=0, endColoStr=#FFFFFF
+        );
+
+    /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";	
+       filter: alpha(opacity=50);
+      -moz-opacity:0.5;
+       -khtml-opacity: 0.5;
+       opacity: 0.7;*/
+}
+
+
+///////////////////////////////  new stuff ////////////////////////////
+
+#dialog-form label, #dialog-form input {
+    display: block;
+}
+label {
+    font-weight: bold;
+}
+
+
+.vzuui-apps-icon{
+    background-image: url("../images/applications/apps.png") !important;
+    background-position: 2px 3px;
+    background-repeat: no-repeat;
+}
+
+.vzuui-pc-help-icon{
+    background-image: url("../images/applications/pc-Help.png") !important;
+    background-position: 2px 3px;
+    background-repeat: no-repeat;   
+}
+
+.vzuui-external-link-icon{
+    background-image: url("../images/applications/external-Link.png")  !important;
+    background-position: 2px 3px;
+    background-repeat: no-repeat;
+}
+
+.vzuui-pc-tools-icon{
+    background-image: url("../images/applications/tools.png")  !important;
+    background-position: 2px 3px;
+    background-repeat: no-repeat;
+    
+}
+
+    
+.vzuui-app-icon-title-bar .widget-editable {
+    width: 30px;
+    height: 32px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("../images/edit-widget-nohover.png");
+    background-position: center 8px;
+    right: 50px;
+    top: 0px;
+    position: absolute; }
+
+.vzuui-app-icon-title-bar .widget-editable:hover {
+    background-image: url("../images/edit-widget-hover.png"); }

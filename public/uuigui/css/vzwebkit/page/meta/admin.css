@@ -1,0 +1,56 @@
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    width:100%;
+    min-width: 1002px;
+}
+.grid-container {
+    background: #fff;
+    max-width: 1700px;
+}
+.page-header {
+    background: #fff;
+}
+
+.vgrid-head {
+    height:35px;
+}
+
+.vgrid-column {
+    height:35px;
+    padding-top: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.vgrid-left-gutter {
+    height:35px;
+}
+
+.vgrid-row {
+    height:35px;
+}
+
+.vgrid-body .vgrid-column[data-name=ROW_ACTIONS] {
+    padding-top: 9px;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+select {
+    height: 19px;
+    margin-left:0px;
+}
+textarea {
+    height: 100% !important;
+}
+
+.vzuui-page-header {
+    position:static;
+}
+
+.vzuui-btn-gray {
+    padding: 5px 10px;
+    margin-right: 5px;
+}

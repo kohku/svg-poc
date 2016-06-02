@@ -1,0 +1,104 @@
+ul.accordionpanel {
+    list-style-type: none;
+    position:relative;
+    background-color: transparent;
+    overflow:hidden;
+    margin: 0px;
+    margin-bottom:10px;
+    padding:0px;
+}
+
+ul.accordionpanel li.accordionheader {
+    background-color: #EEEEEE;
+    border: 1px solid #AFA7A7;
+    height:25px;
+    color:black;
+}
+ul.accordionpanel li.accordionheader:hover {
+    background-color: #D2F4FF;
+    border: 1px solid #00A8E1;
+}
+
+ul.accordionpanel li.accordionheader .accordionheadername {
+    position: absolute;
+    left: 5px;
+    top:3px;
+    font-weight: bold;
+}
+ul.accordionpanel li.accordionheader .accordionheadertoggle {
+    background:url("../../images/new-OM-sprite.png") top left no-repeat;
+    width:11px; height:7px; background-position:-65px -159px;
+    position: absolute;
+    top:9px;
+    right:5px;
+}
+ul.accordionpanel li.accordionheader:hover .accordionheadertoggle {
+    background:url("../../images/new-OM-sprite.png") top left no-repeat;
+    width:11px; height:6px; background-position:-66px -214px;
+}
+ul.accordionpanelselected li.accordionheader,
+ul.accordionpanelselected:hover li.accordionheader {
+    background-color: #00A8E1;
+    color:white;
+}
+ul.accordionpanelselected li.accordionheader .accordionheadertoggle,
+ul.accordionpanelselected li.accordionheader:hover .accordionheadertoggle{
+    width:12px; height:6px; background-position:-65px -324px;
+}
+ul.accordionpanel li.accordioncontent {
+    background-color: #f9f9f9;
+    display:none;
+    margin-top:5px;
+    border: 1px solid #00A8E1;
+    padding: 10px;
+}
+
+ul.accordionpanelmain {
+
+}
+
+ul.accordionpanelmain li.accordionheader {
+    background-color: #00A8E1;
+    height:30px;
+    color:white;
+    border: 1px solid #00A8E1;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;    
+}
+ul.accordionpanelmain li.accordionheader:hover {
+    background-color: #00A8E1;
+}
+ul.accordionpanelmain li.accordionheader .accordionheadertoggle {
+    width:12px; height:6px; background-position:-65px -269px; 
+}
+ul.accordionpanelmain li.accordionheader:hover .accordionheadertoggle {
+    width:12px; height:6px; background-position:-65px -269px; 
+
+}
+ul.accordionpanelmain.accordionpanelselected li.accordionheader .accordionheadertoggle,
+ul.accordionpanelmain.accordionpanelselected li.accordionheader:hover .accordionheadertoggle{
+    width:12px; height:6px; background-position:-65px -324px;
+}
+ul.accordionpanelmain li.accordionheader .accordionheadername {
+    position: absolute;
+    left: 5px;
+    top:5px;
+    font-weight: bold;
+}
+ul.accordionpanelmain li.accordionheader .accordionheadertoggle {
+    top:12px;
+}
+ul.accordionpanelmain li.accordioncontent {
+    border: 1px solid #A7A7A7;
+}
+ul.accordionpanelmain li.accordioncontent-plain {
+    background-color: #E6E6E6;
+    display:none;
+    margin-top:5px;
+    border: 0px solid #BEB8B8;
+    padding: 0px;
+}

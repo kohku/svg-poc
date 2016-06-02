@@ -1,5 +1,5 @@
 import { Observable } from './observable'
-import { Slot, Shelf, Card, CardSlotContainer } from './components'
+import {Rack, Slot, Shelf, Card, CardSlotContainer } from './components'
 
 export class RenderEngine extends Observable {
   constructor(selector){
@@ -12,18 +12,26 @@ export class RenderEngine extends Observable {
   
   // Render our drawing component icons
   // this feature could be removed
-  buildControls(){
-//    this.slotBuilder = this.createSlot({50, 100, 25, 200, 3, 3})
-    // this.slotBuilder.attr({
-    //   fill: "red",
-    //   stroke: "#000",
-    //   strokeWidth: 3
-    // })
-    // let self = this;
-    // this.slotBuilder.node.onclick = function(){
-    //   self.trigger('onCloned', self.clone)
-    // }
-  }
+   buildControls(){
+    // let shelfBuilder = this.createShelf({x: 200, y: 80, width: 400, height: 200})
+    // shelfBuilder.render()
+  //   let slotBuilder = this.createSlot({x: 0, y: 80, width: 25, height: 150, name: "slot"})
+  //   slotBuilder.render()
+  //   slotBuilder.onClick(function(){
+  //     let clone = slotBuilder.clone()
+  //     clone.options.x = slotBuilder.options.x + slotBuilder.options.width + 20
+  //     clone.render()
+  //     clone.drag()
+  //   })
+  //   let cardBuilder = this.createCard({x: 0, y: 240, width: 25, height: 150, name: "card"})
+  //   cardBuilder.render()
+  //   cardBuilder.onClick(function(){
+  //     let clone = cardBuilder.clone()
+  //     clone.options.x = cardBuilder.options.x + cardBuilder.options.width + 20
+  //     clone.render()
+  //     clone.drag()
+  //   })
+   }
 
   // Handles the selection. Draw the square selection rectangle and
   // triggers events
@@ -31,29 +39,44 @@ export class RenderEngine extends Observable {
     // selection starts
     let self = this
     this.paper.node.onmousedown = function(event){
-      if (self.paper.node !== event.target)
+      if (self.paper.node !== event.target){
         return
+      }
+      event.stopImmediatePropagation()
+      event.stopPropagation()
+      event.preventDefault()
       
       let offsetX = event.offsetX
       let offsetY = event.offsetY
       let selection = self.paper.rect(offsetX, offsetY, 0, 0)
       selection.attr({
-        fill: "#efefef",
-        fillOpacity: 0.5,
-        stroke: "#101010",
-        strokeWidth: 0.1,
+        fill: "#ededed",
+        fillOpacity: 0.4,
+        stroke: "#030303",
+        strokeWidth: 3.1,
         strokeDasharray: "5, 5"
       });
       
       // selection is in process
       self.paper.node.onmousemove = function(event){
-        selection.attr({
-          width: event.offsetX,
-          height: event.offsetY
-        })
+        event.stopImmediatePropagation()
+        event.stopPropagation()
+        event.preventDefault()
+        if (event.target !== self.paper.node){
+          let rect = self.paper.node.getBoundingClientRect()
+          selection.attr({
+            width: event.clientX - rect.left - offsetX,
+            height: event.clientY - rect.top - offsetY
+          })
+        } else {
+          selection.attr({
+            width: event.offsetX - offsetX,
+            height: event.offsetY - offsetY
+          })
+        }
       }
       
-      self.paper.node.mouseleave = self.paper.node.mouselout = function(){
+      self.paper.node.mouseleave = self.paper.node.mouseout = function(){
         self.paper.node.onmousemove = null
         self.paper.node.onmouseup = null
         selection.remove()
@@ -100,6 +123,10 @@ export class RenderEngine extends Observable {
     }
   }
   
+   createRack(options){
+    return new Rack(this, options)
+  }
+  
   createShelf(options){
     return new Shelf(this, options)
   }
@@ -143,8 +170,9 @@ export class RenderEngine extends Observable {
   // returns the view
   appendComponent(component){
     let view = null
-    
-    if (component instanceof Shelf){
+     if (component instanceof Rack){
+      view = this.buildRack(component.options)
+    } else if (component instanceof Shelf){
       view = this.buildShelf(component.options)
     } else if (component instanceof Slot){
       view = this.buildSlot(component.options)
@@ -158,14 +186,24 @@ export class RenderEngine extends Observable {
     
     return this.setView(component, view) 
   }
+  // Builds a svg element associated with a Rack
+   buildRack(options){
+    let rack = this.paper.rect(options.x, options.y, options.width, options.height, 1, 1)
+    rack.attr({
+        fill: "#fff",
+        stroke: "#000",
+        strokeWidth: 2
+    })
+    return rack
+  }
   
   // Builds a svg element associated with a Shelf
   buildShelf(options){
-    let shelf = this.paper.rect(options.x, options.y, options.width, options.height, 3, 3)
+    let shelf = this.paper.rect(options.x, options.y, options.width, options.height, 1, 1)
     shelf.attr({
-        fill: "#c0c0c0",
+        fill: "#fff",
         stroke: "#000",
-        strokeWidth: 3
+        strokeWidth: 2
     })
     return shelf
   }
@@ -214,5 +252,20 @@ export class RenderEngine extends Observable {
       // remove it from class
       this.componentsCollection.splice(index, 1)
     }
+ }
+ 
+ group(selection){
+   let group = this.paper.g()
+   
+   selection.filter(component => {
+     return this.componentsCollection.indexOf(component) >= 0
+    }).forEach(component => {
+      group.add(component) 
+      
+    })
+  
+   return group
+    
+   
  }
 }

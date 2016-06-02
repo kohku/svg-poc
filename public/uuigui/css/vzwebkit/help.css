@@ -1,0 +1,427 @@
+#helppagecontent
+{
+	padding: 17px 15px 0px 15px;
+}
+
+ .inner_help_container_new
+ {  height: 100%; }  
+
+.ui-accordion .primarynav {
+    background: none repeat scroll 0px center transparent;
+    color: #555;
+    border-radius: 0px;
+    padding-left: 10px;
+    font-family: "Arial","Helvectica";
+    border-left: 0px none;
+    border-right: 0px none;
+    border-top: 1px none;}
+    
+.ui-helper-hidden-accessible {
+	display:none
+}
+
+.help_content .ulhelpinfo
+{
+	margin-right: 15px;
+}
+.help_content .ulapp-help
+{
+	margin-right: 0px;
+}
+.help_content .ulapp-help .lihelpinfo
+{
+	padding-bottom: 0px;
+}
+.helptools
+{
+	padding-right: 0px;
+}
+.help_header h1
+{
+	font-size: 18px;
+}
+.help_content .ulhelpinfo .lihelpinfo h2
+{
+	font-size: 14px;
+}
+.help_content .ulhelpinfo .lihelpinfo
+{
+	margin-top: 15px;
+}
+.helpDesc p
+{
+	font-size: 12px;
+}
+a.cke_dialog_ui_button_ok
+{
+	background: #b00000 !important;
+	border: 1px solid #890000 !important;
+	border-radius: 3px !important;
+	box-shadow: inset 0px 1px 1px white;
+	color: white !important;
+	font-family: Arial;
+	font-weight: bold !important;
+	margin-bottom: 0;
+	margin-right: 10px !important;
+	moz-border-radius: 3px;
+	ms-border-radius: 3px !important;
+	padding: 3px 8px !important;
+	webkit-border-radius: 3px;
+}
+a.cke_dialog_ui_button_ok:hover
+{
+	background: #890000 !important;
+	cursor: pointer;
+	font-family: Arial;
+}
+.vzuui-custom-dialog
+{
+	border: 1px solid #EEE !important;
+	border-radius: 0 !important;
+	color: #333 !important;
+	font-family: Arial !important;
+}
+.vzuui-custom-dialog .ui-dialog-titlebar
+{
+	background: #B00000 !important;
+	border-radius: 0 !important;
+	color: #FFF !important;
+}
+.vzuui-custom-dialog .ui-dialog-titlebar-close,.ui-dialog .ui-dialog-titlebar-close:hover
+{
+	background: transparent !important;
+	border: 0 !important;
+}
+.vzuui-custom-dialog p
+{
+	color: #333 !important;
+	font-size: 12px !important;
+	line-height: 20px;
+	margin: 4px 0 10px;
+}
+.vzuui-custom-dialog .ui-widget-content
+{
+	border-top: 1px solid #EEE !important;
+}
+.vzuui-custom-dialog .vzuui-btn-gray
+{
+	background: #e4e6e6 !important;
+	border: 1px solid #D1D1CF !important;
+	border-radius: 3px !important;
+	box-shadow: inset 0px 1px 1px white !important;
+	color: #797A79 !important;
+	font-family: Arial;
+	font-weight: bold !important;
+	moz-border-radius: 3px;
+	ms-border-radius: 3px;
+	padding: 3px 8px !important;
+	webkit-border-radius: 3px;
+}
+.vzuui-custom-dialog .vzuui-btn-gray:hover
+{
+	background-color: #D6D8D9 !important;
+	color: #4E4E52 !important;
+	cursor: pointer;
+	font-family: Arial;
+}
+.vzuui-custom-dialog .vzuui-btn-red
+{
+	background: #b00000 !important;
+	border: 1px solid #890000 !important;
+	border-radius: 3px !important;
+	box-shadow: inset 0px 1px 1px white;
+	color: white !important;
+	font-family: Arial;
+	font-weight: bold !important;
+	margin-bottom: 0;
+	margin-right: 10px !important;
+	moz-border-radius: 3px;
+	ms-border-radius: 3px !important;
+	padding: 3px 8px !important;
+	webkit-border-radius: 3px;
+}
+.vzuui-custom-dialog .vzuui-btn-red:hover
+{
+	background: #890000 !important;
+	cursor: pointer;
+	font-family: Arial;
+}
+.vzuui-custom-dialog .ui-icon,.vzuui-custom-dialog .ui-widget-content .ui-icon
+{
+	background-image: url("images/ui-icons_d8e7f3_256x240.png");
+}
+.vzuui-custom-dialog .ui-widget-header .ui-icon
+{
+	background-image: url("images/ui-icons_d8e7f3_256x240.png");
+}
+.firstlevel,.secondlevel,.bcrumbsep
+{
+	display: none;
+}
+.left-menu-bar
+{
+	box-shadow: 5px 5px 5px #888888;
+	margin: 0px;
+	overflow: auto;
+	position: absolute;
+	width: inherit;
+	z-index: 100;
+}
+.vzuui-userImag
+{
+	float: left;
+	height: 40px;
+	margin: 0px;
+	width: 110px;
+}
+.help_content .ulhelpinfo .compTask:before,.help_content .ulhelpinfo .vtube:before,.help_content .ulhelpinfo .taskdesc:before,.help_content .ulhelpinfo .vzknowledge:before
+{
+	height: 0px;
+	width: 0px;
+}
+.helpSectionHeader
+{
+	margin: auto;
+}
+.helpSectionContent
+{
+	margin: auto;
+}
+.right-container-section .help-section-content
+{
+	width: 100%;
+}
+.editter
+{
+	display: none;
+}
+.editter_app_help
+{
+	display: none;
+}
+.editseperator
+{
+	display: none;
+}
+.vzuui-task-info-new li a
+{
+	padding: 23px 8px 10px;
+}
+.vzui-searchicon
+{
+	width: 40px;
+}
+.vzuui-notification-image-new
+{
+	width: 30px;
+}
+.leftpanel
+{
+	display: none;
+}
+.helpDesc
+{
+	color: #898989;
+	font-size: 14px;
+	margin-top: -10px;
+	padding-left: 0px;
+	position: relative;
+}
+.slider
+{
+	background-image: url("images/unified-new/vzuui_header_sprite.png");
+	background-position: -107px -252px;
+	box-shadow: 3px 3px 6px #888;
+	cursor: pointer;
+	left: -2px;
+	padding: 34px 16px 0px 0px;
+	position: absolute;
+	top: 90px;
+	z-index: 100;
+}
+.sliderSelected
+{
+	background-position: -168px -252px;
+	left: 61.8%;
+}
+@media screen and (min-width:25em)
+{
+	.helpDesc
+	{
+		color: #898989;
+		font-size: 14px;
+		margin-top: -36px;
+		padding-left: 53px;
+		position: relative;
+	}
+	.help_content .ulhelpinfo .taskdesc:before
+	{
+		background: url('images/unified-new/help-sprite.png') no-repeat scroll 0px -33px;
+		content: " ";
+		display: block;
+		height: 40px;
+		position: relative;
+		width: 40px;
+	}
+	.help_content .ulhelpinfo .vzknowledge:before
+	{
+		background: url('images/unified-new/help-sprite.png') no-repeat scroll -50px -33px;
+		content: " ";
+		display: block;
+		height: 40px;
+		position: relative;
+		width: 40px;
+	}
+	.help_content .ulhelpinfo .vtube:before
+	{
+		background: url('images/unified-new/help-sprite.png') no-repeat scroll -150px -33px;
+		content: " ";
+		display: block;
+		height: 40px;
+		position: relative;
+		width: 40px;
+	}
+	.help_content .ulhelpinfo .compTask:before
+	{
+		background: url('images/unified-new/help-sprite.png') no-repeat scroll -100px -33px;
+		content: " ";
+		display: block;
+		height: 40px;
+		position: relative;
+		width: 40px;
+	}
+	.editter
+	{
+		display: inline-block;
+	}
+	.editseperator
+	{
+		display: inline;
+	}
+	.editter_app_help
+	{
+		display: inline-block;
+	}
+}
+.ui-accordion .firstchild
+{
+	border-top: 1px solid #ccc !important;
+	margin-top: 5px;
+}
+.searchResultClose
+{
+	background: url("images/Close_BG.png") repeat scroll 0% 0% transparent;
+	margin: 10px;
+	padding: 6px 13px;
+}
+@media screen and (min-width: 35.5em)
+{
+	.helpSectionHeader
+	{
+		margin: 5px 0px 0px 5px;
+	}
+	.helpSectionContent
+	{
+		margin: 0px 0px 0px 5px;
+	}
+	.right-container-section .help-section-content
+	{
+		width: auto;
+	}
+	.firstlevel,.secondlevel,.bcrumbsep
+	{
+		display: inline;
+	}
+	.help_content .ulhelpinfo .lihelpinfo
+	{
+		margin-top: 25px;
+	}
+	.helpDesc p
+	{
+		font-size: 14px;
+	}
+	.help_content .ulhelpinfo .lihelpinfo h2
+	{
+		font-size: 15px;
+	}
+	.help_header h1
+	{
+		font-size: 20px;
+	}
+	.slider
+	{
+		display: none;
+	}
+	.vzuui-task-info-new li a
+	{
+		padding: 23px 10px 10px;
+	}
+	.leftpanel
+	{
+		display: inline-block;
+	}
+	.left-menu-bar
+	{
+		box-shadow: none;
+		margin: 10px 5px 10px 10px;
+		position: relative;
+		width: auto;
+	}
+	.vzuui-notification-image-new
+	{
+		width: 34px;
+	}
+	.vzui-searchicon
+	{
+		width: 43px;
+	}
+}
+@media screen and (min-width: 1024px)
+{
+	.vzuui-userImag
+	{
+		float: left;
+		height: 40px;
+		margin: 5px;
+		width: 40px;
+	}
+}
+.ui-accordion .panelbody
+{
+	border: none;
+	padding: 0px;
+}
+/*
+.ui-accordion .primarynav
+{
+	background: none;
+	color: #555;
+}*/
+.ui-accordion .ui-state-active
+{
+	color: #06c;
+}
+/*
+.ui-accordion .primarynav:hover
+{
+	background-color: #EEEEEE;
+}*/
+
+ #vzuui-help-searchbutton {
+    margin-top: 5px;
+    height: 30px;
+}
+
+  .editter_app_help, .editdisable {
+    background: url("images/Edit-Normal.png") no-repeat scroll 0% 0% transparent;
+    width: 25px;
+    height: 15px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    right: -2px;
+ }
+
+
+
+ 
