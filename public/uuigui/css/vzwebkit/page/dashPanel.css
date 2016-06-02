@@ -1,0 +1,21 @@
+
+.vzuui-app-container {
+   
+    top: 5px;
+    left: 10px;
+}
+
+#vzuui-ribbon-left-icon {
+    top: 200px;
+    left: 6px;
+}
+
+#vzuui-ribbon-right-icon {
+    top: 200px;
+}
+
+.vzuui-widget-app {
+    padding-left:10px;
+    padding-top: 258px;
+    
+}

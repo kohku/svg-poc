@@ -1,0 +1,28 @@
+.vzuui-form-1{ padding:10px;}
+.vzuui-form-1 h2{color: #000;}
+.vzuui-form-1 .breadcrumbs {padding: 5px;}
+.form-header{ border:1px solid #d4d4d4;padding: 5px 10px;font-size: 11px;background:transparent linear-gradient(to bottom, #FFF 0px, #F4F4F4 100%) repeat scroll 0px 0px;}
+.form-header h2{margin:0;}
+.form-body{margin: 0px; background:#FFF;padding: 6px;border:1px solid #d4d4d4; border-top:0;}
+.labelclass{
+	display: inline-block;
+	height: 29px;
+	padding-top: 6px;
+	padding-right: 6px;}
+.vzuui-data-div {
+    margin: 5px 0px;
+}
+.vzuui-form input, select{
+	margin-left:0px;
+}
+.vzuui-btn-red, .vzuui-btn-red-active, .vzuui-btn-red-disabled{margin:5px 0px;}
+.radio-container{padding-top: 7px;}
+@media screen and (min-width: 35.5em) {
+	.align-right{text-align:right;}
+	.vzuui-form input, select{margin-left:15px;}
+	.vzuui-btn-red, .vzuui-btn-red-active, .vzuui-btn-red-disabled{margin: 0px;}
+}
+@media screen and (min-width: 64em) {
+.table-header-name{width:auto;}
+}
+

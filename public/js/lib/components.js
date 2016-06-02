@@ -40,6 +40,12 @@ export class Component extends Observable {
   }
 }
 
+export class Rack extends Component{
+  constructor(builder, options){
+    super(builder, options)
+  }
+}
+
 export class Slot extends Component {
   constructor(builder, options){
     super(builder, options)

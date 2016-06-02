@@ -1,0 +1,290 @@
+@CHARSET "ISO-8859-1";
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    width:100%;
+    min-width: 1002px;
+}
+
+html {
+    height : auto !important;
+}
+.grid-container {
+    background: #fff;
+    max-width: 1700px;
+}
+.page-header {
+    background: #fff;
+}
+
+#wgResultGrid .vgrid-row .vgrid-column, #resultGrid .vgrid-row .vgrid-column, #skillsetResultGrid .vgrid-row .vgrid-column {
+    height:35px;
+    padding-top: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#wgResultGrid .vgrid-left-gutter, #resultGrid .vgrid-left-gutter, #skillsetResultGrid .vgrid-left-gutter {
+    height:35px;
+}
+
+#wgResultGrid .vgrid-row, #resultGrid .vgrid-row, #skillsetResultGrid .vgrid-row {
+    height:35px;
+}
+
+#searchResultDiv .vgrid-body .vgrid-column[data-name=ROW_ACTIONS] {
+    padding-top: 9px;
+    text-align: center;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+select {
+    height: 19px;
+}
+textarea {
+    height: 100% !important;
+}
+
+.vzuui-page-header {
+    position:static;
+}
+
+.vzuui-btn-gray {
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+#wgUsersGrid .vgrid-body .vgrid-row {
+	height : 35px !important;
+}
+
+#wgUsersGrid .vgrid-body .vgrid-row .vgrid-column {
+	height : 35px !important;
+}
+
+#wgUsersGrid .vgrid-body .vgrid-row .vgrid-column select {
+	margin: auto;
+}
+
+#skillsetGrid .vgrid-body .vgrid-row {
+	height : 35px !important;
+}
+
+#skillsetGrid .vgrid-body .vgrid-row .vgrid-column {
+	height : 35px !important;
+}
+
+#skillsetUsersGrid .vgrid-body .vgrid-row {
+	height : 35px !important;
+}
+
+#skillsetUsersGrid .vgrid-body .vgrid-row .vgrid-column {
+	height : 35px !important;
+}
+
+#skillsetGrid .vgrid-body .vgrid-row .vgrid-column select {
+	margin: auto;
+}
+
+#wgUsersGrid .vgrid-body .vgrid-column[data-name=ROW_ACTIONS] {
+    padding-top: 9px;
+    text-align: center;
+}
+
+#wgUsersGrid .vgrid-body .vgrid-column[data-name=LDAPUserInfoId] {
+    padding-top: 9px;
+    text-align: center;
+}
+
+#skillsetUsersGrid .vgrid-body .vgrid-column[data-name=UserInfoId] {
+    padding-top: 9px;
+    text-align: center;
+}
+
+#skillsetGrid .vgrid-body .vgrid-column[data-name=ROW_ACTIONS] {
+    padding-top: 9px;
+    text-align: center;
+}
+
+#skillsetUsersGrid .vgrid-body .vgrid-column[data-name=ROW_ACTIONS] {
+    padding-top: 9px;
+    text-align: center;
+}
+
+
+
+.vzuui-btn-red {
+	padding: 6px;	
+}
+
+#addNewUser{
+	margin-bottom: 10px;	
+}
+
+#searchUserAdd{
+	margin-bottom: 10px;	
+}
+
+#addSkillset{
+	margin-bottom: 10px;	
+}
+
+.vzuui-form input,.vzuui-form select {
+  margin-left: 0px;
+}
+
+.vzuui-form select[multiple] {
+  height: auto;
+}
+
+.adhocInlineBlock{
+	display: inline-block;
+	height: 36px;
+	border: 1px solid #FFFFFF;
+	vertical-align: top;
+	padding: 3px;	
+}
+
+
+.lineIcon{
+	background-image: url('../images/red_dotted_line.gif');	
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	position: relative;
+	top : 7px;
+}
+
+.plusIcon{
+	background-image: url('../images/redplus.gif');	
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	position: relative;
+	top : 7px
+}
+
+.minusIcon{
+	background-image: url('../images/redminus.gif');	
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	position: relative;
+	top : 7px
+}
+
+.arrowIcon{
+	background-image: url('../images/lvl_arrow.gif');	
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	position: relative;
+	top : 10px;
+}
+
+#conditionStartNode li.header{
+	background:#bdbdc4;
+}
+
+#conditionStartNode li.level1{
+	background:#cbcbd0;
+}
+
+#conditionStartNode li.level2{
+	background:#d7d7db;
+}
+
+#conditionStartNode li.level3{
+	background:#e5e5e7;
+}
+
+#conditionStartNode li.level4{
+	background:#f2f2f3;
+}
+
+#conditionStartNode li.level5{
+	background:#e0f4ff;
+}
+
+
+#conditionStartNode div.leftOperandDiv{
+	width : 55%;
+}
+
+#conditionStartNode div.OperatorDiv{
+	width : 10%;
+	text-align: center;
+}
+
+#conditionStartNode div.RightOperandDiv{
+	width : 20%;
+	text-align: center;
+}
+
+#conditionStartNode div.ConnectiveDiv{
+	width : 8%;
+	text-align: center;
+}
+
+#conditionStartNode div.ActionDiv{
+	width : 7%;
+	text-align: center;
+}
+
+#conditionStartNode {
+	width : 90%;
+}
+
+#conditionStartNode div.leftOperandDiv input{
+	width : 75%;
+}
+
+#conditionStartNode div.OperatorDiv select{
+	width : 95%;
+	margin : auto;
+}
+
+#conditionStartNode div.RightOperandDiv input{
+	width : 95%;
+	margin : auto;
+}
+
+#conditionStartNode div.ConnectiveDiv select{
+	width : 95%;
+	margin : auto;
+}
+
+#conditionStartNode div.ActionDiv span{
+	display: inline-block;	
+	margin-top : 7px;
+}
+
+#conditionStartNode div.ActionDiv span.removeChildCondition{
+	margin-left : 10px;
+}
+
+#conditionStartNode li.header div div{
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	padding-top: 6px;
+}
+
+#wgResultGrid .vgrid-column, #skillsetResultGrid .vgrid-column, #resultGrid .vgrid-column{
+	text-align: center;
+}
+
+#vgrid-wrapper{
+    height: 305px !important;
+}
+
+
+.vzuui-dataGrid{
+	border: 1px solid #999899 !important;
+}

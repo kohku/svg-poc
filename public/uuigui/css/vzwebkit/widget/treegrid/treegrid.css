@@ -1,0 +1,135 @@
+
+.tg_container {
+    display:inline-block;
+    border-style: solid;
+    border-width: 1px 0px 0px 1px;
+    border-color: #bbb;
+     padding: 0px;
+    margin: 0px;
+}
+.tg_row {
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    white-space: nowrap;
+    height: 25px;
+    line-height: 16px;
+   
+}
+.tg_row:hover {
+    background-color: #EeEeEe;
+}
+
+
+
+
+
+.tg_header {
+    display:block;
+    
+    font-weight: bold;
+    line-height: 15px;
+    white-space: nowrap;
+    padding: 0px;
+    margin: 0px;
+    height:24px;
+    background-image: linear-gradient(#eaeaea 0px, #e1e1e1 48%, #d8d8d8 94%, #d8d8d8 100%);
+    background-image: linear-gradient(#eaeaea 0%, #e1e1e1 48%, #d8d8d8 94%, #d8d8d8 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffeaeaea,endColorstr=#ffd8d8d8)";
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffeaeaea,endColorstr=#ffd8d8d8); 
+}
+.tg_col {
+    border-style: solid;
+    border-width: 0px 1px 1px 0px;
+    border-color: #bbb;
+    padding: 4px;
+    display: inline-block;
+    width: 160px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0px;
+}
+
+.tg_lvl1 { border-color: #c04040;}
+.tg_lvl2 { border-color: #40c040;}
+.tg_lvl3 { border-color: #4040c0;}
+.tg_lvl4 { border-color: #c040c0;}
+.tg_lvl5 { border-color: #40c0c0;}
+.tg_lvl6 { border-color: #40c040;}
+.tg_lvl7 { border-color: #c04040;}
+.tg_lvl8 { border-color: #40c040;}
+
+.tg_IconOpen, .tg_IconClose, .tg_IconEmpty, .tg_IconCtx, 
+.tg_IconGreen, .tg_IconGray, .tg_IconBlue, .tg_IconPurple, .tg_IconRed, .tg_IconYellow {
+    background-image: url('tRarrow.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-right: 7px;
+    padding-left: 7px;
+    vertical-align: middle;
+    box-sizing: content-box;
+}
+.tg_IconOpen, .tg_IconClose, .tg_IconCtx{
+    cursor: pointer;
+}
+.tg_IconClose {
+    background-image: url('tDarrow.png');
+    
+}
+.tg_IconEmpty {
+   background-image: url('tEmpty.png');
+   cursor:auto;
+}
+.tg_IconGreen {
+    background-image: url('tIconGreen.png');
+}
+.tg_IconGray {
+    background-image: url('tIconGray.png');
+}
+.tg_IconBlue {
+    background-image: url('tIconBlue.png');
+}
+.tg_IconPurple {
+    background-image: url('tIconPurple.png');
+}
+.tg_IconRed {
+    background-image: url('tIconRed.png');
+}
+.tg_IconYellow {
+    background-image: url('tIconYellow.png');
+}
+.tg_IconCtx {
+    padding: 5px 7px 5px 7px;
+    background-image: url('actions-context-menu.png');
+    background-repeat: no-repeat;
+}
+.tg_IconStausGreen {
+    border: 1px solid #006600;
+    padding: 5px 7px 5px 7px;
+    background-repeat: no-repeat;
+    background-color: #66FF66;
+}
+.tIconHelp {
+    background-image: url('treeHelp2.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-right: 8px;
+    padding-left: 7px;
+	padding-top: 1px;
+    vertical-align: middle;
+	cursor: pointer;
+}
+
+.tg_inr{
+    display:inline-block;
+}
+.tg_hdn {
+    display:none;
+}
+
+.c1 {
+    width:160px;
+}
+.c2 {
+    width:150px;
+}

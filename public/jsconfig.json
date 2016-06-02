@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "jsx": true
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "ext",
+    "overrides",
+    "resources",
+    "sass",
+    "build",
+    "packages",
+    "help",
+    ".sass-cache"
+  ]
+}

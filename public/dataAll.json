@@ -1,0 +1,191 @@
+[{"X":210,
+"Y":90,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":305,
+"Y":90,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":400,
+"Y":90,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":495,
+"Y":90,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+
+
+
+
+{"X":210,
+"Y":120,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":305,
+"Y":120,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":400,
+"Y":120,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":495,
+"Y":120,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":210,
+"Y":150,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":305,
+"Y":150,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":400,
+"Y":150,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":495,
+"Y":150,
+"width":0.9146,
+"height":0.1875,
+"name":"P/S SLOT",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":216,
+"Y":185,
+"width":4.0173,
+"height":0.3125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":216,
+"Y":225,
+"width":0.573,
+"height":0.8125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":277,
+"Y":225,
+"width":0.573,
+"height":0.8125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":337,
+"Y":225,
+"width":0.573,
+"height":0.8125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":416,
+"Y":225,
+"width":0.573,
+"height":0.8125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":477,
+"Y":225,
+"width":0.573,
+"height":0.8125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+
+{"X":537,
+"Y":225,
+"width":0.573,
+"height":0.8125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":216,
+"Y":315,
+"width":4.0173,
+"height":0.3125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":216,
+"Y":355,
+"width":4.0173,
+"height":0.3125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+},
+{"X":216,
+"Y":395,
+"width":4.0173,
+"height":0.3125	,
+"name":"CARD",
+"ind":"Y",
+"manufacturer":"NORTEL"	
+}
+]
